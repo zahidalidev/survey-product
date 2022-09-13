@@ -17,7 +17,7 @@ const CancelMembership = () => {
         </div>
         <div className='card-container'>
           <div className='tag-wrapper'>
-            <BsFillTagsFill className='tag-icon' />
+            <BsFillTagsFill color='#1782e6' className='tag-icon' />
           </div>
           <div className='content-container'>
             <h2 className='heading'> Before You Go... </h2>
