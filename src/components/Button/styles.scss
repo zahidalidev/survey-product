@@ -1,0 +1,17 @@
+@import 'variables';
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 2.7rem;
+  width: 11rem;
+  float: left;
+
+  .name {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}

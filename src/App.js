@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, Navigate } from 'react-router-dom'
+import { Suspense } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import CancelMembership from 'containers/cancelMembership'
+import CancellationSurvey from 'containers/cancellationSurvey'
 
-export default App;
+const App = () => (
+  <Suspense fallback={<div />}>
+    <Routes>
+      <Route path='/cancel-membership' element={<CancelMembership />} />
+      <Route path='/cancellation-survey' element={<CancellationSurvey />} />
+
+      <Route path='*' element={<Navigate replace to='/cancel-membership' />} />
+    </Routes>
+  </Suspense>
+)
+
+export default App

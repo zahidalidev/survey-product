@@ -1,0 +1,89 @@
+@import 'variables' ;
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+
+  .cancel-modal {
+    width: 42rem;
+    height: 24rem;
+    box-shadow: 0 -4px 7px 0 rgba(0, 0, 0, 0.11), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+    padding: 2rem;
+    border-radius: 10px;
+
+    .close-icon {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+
+      .tag-wrapper {
+        width: $col-1;
+      }
+
+      .tag-icon {
+        font-size: 4rem;
+        margin-top: 1.7rem;
+      }
+
+      .content-container {
+        width: $col-11;
+        flex-direction: column;
+        margin-left: 2rem;
+
+        .description {
+          color: $grey;
+          line-height: 2rem;
+        }
+
+        .discount-description {
+          color: $grey;
+          font-weight: bold;
+          margin-top: 2rem;
+        }
+
+        .safe-description {
+          color: $grey;
+          margin-top: 2rem;
+        }
+
+        .actions {
+          display: table;
+          flex-direction: row;
+          margin-top: 2rem;
+        }
+      }
+
+
+    }
+
+  }
+
+  @media screen and (max-width: 450px) {
+    .cancel-modal {
+      height: 38rem;
+
+      .cancel-modal {
+        padding: 1rem !important;
+      }
+
+      .heading {
+        font-size: 1.4rem;
+        max-width: 93%;
+      }
+
+      .tag-icon {
+        font-size: 2.5rem !important;
+        margin-top: 1rem !important;
+      }
+    }
+  }
+}
