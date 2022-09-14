@@ -24,12 +24,14 @@
 
     .back-icon-wraperr {
       display: flex;
-      width: 1.2rem;
-      height: 1.2rem;
+      width: 1.5rem;
+      height: 1.5rem;
       background-color: $white;
       justify-content: center;
       align-items: center;
       border-radius: 5px;
+      border: none;
+      cursor: pointer;
     }
 
     .title {
@@ -79,17 +81,6 @@
       }
     }
 
-    .question-lable {
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-align: left;
-      margin-top: 3rem !important;
-    }
-    .product-issue {
-      margin-top: 2rem !important;
-    }
-
-
     .text-area {
       height: 6rem;
       border-radius: 2px;
@@ -101,14 +92,6 @@
 
     .text-area:focus {
       outline: 1px solid $light-grey;
-    }
-
-    .bugs-problem-btns {
-      margin-bottom: 5.5rem;
-    }
-
-    .problem-details {
-      margin-top: -1.5rem;
     }
 
     .horizontal-seperator {
@@ -260,7 +243,6 @@
     .drop-down-select {
       float: left !important;
       width: 102% !important;
-      // margin-bottom: -10px !important;
     }
 
     .drop-down-options {

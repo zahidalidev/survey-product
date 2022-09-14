@@ -1,16 +1,17 @@
-import { BiChevronLeft, BiChevronDown } from 'react-icons/bi'
-import { IoIosAlert } from 'react-icons/io'
+import { BiChevronLeft } from 'react-icons/bi'
 import { Fragment, useState } from 'react'
+import { IoIosAlert } from 'react-icons/io'
+import { useNavigate } from 'react-router-dom'
 
+import { Button, BugsForm, TextArea } from 'components'
 import answers from 'utils/constants/cancellationSurvey'
 
 import 'containers/cancellationSurvey/styles.scss'
-import Button from 'components/Button'
 
 const CancellationSurvey = () => {
   const [selectedAnswer, setSelectedAnswer] = useState('')
-  const [toggleSelect, setToggleSelect] = useState(false)
   const [selectProducts, setselectProducts] = useState(0)
+  const navigate = useNavigate()
   const [bugsDetails, setBugsDetails] = useState({
     bugProducts: [
       {
@@ -53,97 +54,16 @@ const CancellationSurvey = () => {
     const tempBugsDetails = { ...bugsDetails }
     tempBugsDetails.bugProducts[index].selected = !tempBugsDetails.bugProducts[index].selected
     setBugsDetails(tempBugsDetails)
-    setselectProducts(tempBugsDetails.bugProducts.filter(item => item.selected).length)
+    setselectProducts(tempBugsDetails.bugProducts.filter((item) => item.selected).length)
   }
-
-  const betterSolutionQuestion = (
-    <>
-      <textarea
-        placeholder='What is the better solution? If you dont mind sharing. Your feedback is much appreaciated!'
-        type='text'
-        className='answer-wrapper text-area'
-      />
-      <hr className='horizontal-seperator' />
-    </>
-  )
-
-  const bugsThingsForm = (
-    <>
-      <div>
-        <p className='question-lable product-issue'>
-          Which product(s) did you have an issue with? <IoIosAlert color='#666565' />
-        </p>
-        <button
-          type='button'
-          onClick={() => setToggleSelect(!toggleSelect)}
-          className={`answer-wrapper drop-down-select ${toggleSelect && 'active'}`}
-        >
-          <p className='heading'>{ selectProducts > 0 ? `${selectProducts} products selected` : 'Select product(s)' }</p>
-          <BiChevronDown className='chevron-down' />
-        </button>
-        {toggleSelect && (
-          <div className={`answer-wrapper drop-down-options ${toggleSelect && 'active'}`}>
-            {bugsDetails.bugProducts.map((product, index) => (
-              <div className='option-wrapper'>
-                <input
-                  type='checkbox'
-                  id={product.label}
-                  checked={product.selected}
-                  onChange={() => handleProduct(index)}
-                  value={product.label}
-                />
-                <label className='label' htmlFor={product.label}>
-                  {product.label}
-                </label>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-      <hr className='horizontal-seperator' />
-      <div className='bugs-problem-btns'>
-        <p className='question-lable'>What was it?</p>
-        <span>
-          <Button
-            onSubmit={() => handleProblemType('major')}
-            name='One Major Problem'
-            borderRadius='0px'
-            border='0.5px solid #eeeeee'
-            backgroundColor={bugsDetails.bugType === 'major' ? '#1170dd3b' : '#fff'}
-            color={bugsDetails.bugType === 'major' ? '#1782e6' : '#000'}
-          />
-          <Button
-            onSubmit={() => handleProblemType('various')}
-            name='Various things'
-            borderRadius='0px'
-            border='0.5px solid #eeeeee'
-            backgroundColor={bugsDetails.bugType === 'various' ? '#1170dd3b' : '#fff'}
-            color={bugsDetails.bugType === 'various' ? '#1782e6' : '#000'}
-          />
-        </span>
-      </div>
-      <hr className='horizontal-seperator' />
-      <div className='problem-details'>
-        <p className='question-lable'>
-          What problem(s) did you encounter? <IoIosAlert color='#666565' />
-        </p>
-        <textarea
-          placeholder='What is the better solution? If you dont mind sharing. Your feedback is much appreaciated!'
-          type='text'
-          className='answer-wrapper text-area'
-        />
-      </div>
-      <hr className='horizontal-seperator' />
-    </>
-  )
 
   return (
     <div className='main-survey-container'>
       <div className='survey-container'>
         <div className='breadcrumb'>
-          <div className='back-icon-wraperr'>
-            <BiChevronLeft />
-          </div>
+          <button onClick={() => navigate('/cancel-membership')} type='button' className='back-icon-wraperr'>
+            <BiChevronLeft size='2rem' />
+          </button>
           <p className='title'>Cancellation Survey</p>
         </div>
         <div className='cancel-survey'>
@@ -170,8 +90,17 @@ const CancellationSurvey = () => {
                     {answer.title}
                   </label>
                 </div>
-                {selectedAnswer === answer.title && answer.id === 2 ? betterSolutionQuestion : null}
-                {selectedAnswer === answer.title && answer.id === 4 ? bugsThingsForm : null}
+                {selectedAnswer === answer.title && answer.id === 2 ? (
+                  <TextArea placeholder='What is the better solution? If you dont mind sharing. Your feedback is much appreaciated!' />
+                ) : null}
+                {selectedAnswer === answer.title && answer.id === 4 ? (
+                  <BugsForm
+                    bugsDetails={bugsDetails}
+                    selectProducts={selectProducts}
+                    handleProblemType={handleProblemType}
+                    handleProduct={handleProduct}
+                  />
+                ) : null}
               </Fragment>
             ))}
           </form>
@@ -188,6 +117,7 @@ const CancellationSurvey = () => {
           <div className={`survey-actions survey-${!selectedAnswer ? 'end' : 'between'}`}>
             <div className='back-btn'>
               <Button
+                onSubmit={() => navigate('/cancel-membership')}
                 name='Back'
                 height='2rem'
                 color='#000'

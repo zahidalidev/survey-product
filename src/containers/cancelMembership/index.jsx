@@ -1,14 +1,13 @@
-import { MdClose } from 'react-icons/md'
 import { BsFillTagsFill } from 'react-icons/bs'
+import { MdClose } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 
-import Button from 'components/Button'
+import { Button } from 'components'
 
 import 'containers/cancelMembership/styles.scss'
 
 const CancelMembership = () => {
   const navigate = useNavigate()
-
   return (
     <div className='main-container'>
       <div className='cancel-modal'>
