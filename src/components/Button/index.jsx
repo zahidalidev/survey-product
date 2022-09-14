@@ -11,10 +11,11 @@ const Button = ({
   height = '2.7rem',
   border,
   backIcon,
+  borderRadius = '5px',
 }) => (
   <button
     disabled={disabled}
-    type='submit'
+    type='button'
     onClick={onSubmit}
     className='btn-wrapper'
     style={{
@@ -23,6 +24,7 @@ const Button = ({
       cursor: disabled && 'default',
       height,
       border,
+      borderRadius,
     }}
   >
     { backIcon && <IoArrowBack className='backIcon' /> }

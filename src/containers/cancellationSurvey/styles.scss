@@ -47,6 +47,7 @@
     align-items: center;
     flex-direction: column;
     text-align: center;
+    margin-bottom: 2rem;
 
     .questions {
       color: $grey;
@@ -73,9 +74,16 @@
 
       .label {
         margin-left: 10px;
-        font-size: 1rem;
-        font-weight: 400;
+        font-size: 0.9rem;
+        font-weight: 500;
       }
+    }
+
+    .question-lable {
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: left;
+      margin-top: 3rem !important;
     }
 
     .text-area {
@@ -84,14 +92,26 @@
       padding-top: 1rem;
       font-size: 0.8rem;
       word-spacing: -4px;
-      overflow: auto;
-      outline: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
       resize: vertical;
     }
 
+    .text-area:focus {
+      outline: 1px solid $light-grey;
+    }
+
+    .bugs-problem-btns {
+      margin-bottom: 5.5rem;
+    }
+
+    .problem-details {
+      margin-top: -1.5rem;
+    }
+
+    .horizontal-seperator {
+      border-top: 1px solid $light-grey;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
 
     .active-answer-wrapper {
       background-color: #1170dd3b;
@@ -147,6 +167,37 @@
     .survey-between {
       justify-content: space-between;
     }
+
+    .drop-down-select {
+      border-radius: 0px !important;
+      justify-content: space-between;
+      cursor: pointer;
+
+      .heading {
+        color: $grey;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .chevron-down {
+        margin-right: 15px !important;
+      }
+    }
+
+    .drop-down-options {
+      position: absolute;
+      border-radius: 0px !important;
+      background-color: $white;
+      z-index: 100;
+      margin-top: -1px;
+
+      .heading {
+        color: $grey;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+    }
+
   }
 
   @media screen and (max-width: 450px) {
@@ -172,6 +223,11 @@
     .survey-actions {
       float: left !important;
       width: 90% !important;
+    }
+
+    .drop-down-options {
+      float: left !important;
+      width: 40.5% !important;
     }
 
     .cancel-survey {
@@ -205,5 +261,62 @@
       float: left !important;
       width: 90% !important;
     }
+
+    .drop-down-options {
+      float: left !important;
+      width: 91.5% !important;
+    }
   }
 }
+
+// .dropdown-check-list .anchor {
+//   position: relative;
+//   cursor: pointer;
+//   display: inline-block;
+//   padding: 5px 50px 5px 10px;
+//   border: 1px solid #ccc;
+// }
+
+// .dropdown-check-list .anchor:after {
+//   position: absolute;
+//   content: "";
+//   border-left: 2px solid black;
+//   border-top: 2px solid black;
+//   padding: 5px;
+//   right: 10px;
+//   top: 20%;
+//   -moz-transform: rotate(-135deg);
+//   -ms-transform: rotate(-135deg);
+//   -o-transform: rotate(-135deg);
+//   -webkit-transform: rotate(-135deg);
+//   transform: rotate(-135deg);
+// }
+
+// .dropdown-check-list .anchor:active:after {
+//   right: 8px;
+//   top: 21%;
+// }
+
+// .dropdown-check-list ul.items {
+//   padding: 2px;
+//   display: none;
+//   margin: 0;
+//   border: 1px solid #ccc;
+//   border-top: none;
+// }
+
+// .dropdown-check-list ul.items li {
+//   list-style: none;
+// }
+
+// .dropdown-check-list.visible .anchor {
+//   color: #0094ff;
+// }
+
+// .dropdown-check-list.visible .items {
+//   display: block;
+// }
+
+// .items {
+//   position: absolute;
+// }

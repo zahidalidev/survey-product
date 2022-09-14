@@ -1,4 +1,4 @@
-import { BiChevronLeft } from 'react-icons/bi'
+import { BiChevronLeft, BiChevronDown } from 'react-icons/bi'
 import { IoIosAlert } from 'react-icons/io'
 import { Fragment, useState } from 'react'
 
@@ -9,13 +9,79 @@ import Button from 'components/Button'
 
 const CancellationSurvey = () => {
   const [selectedAnswer, setSelectedAnswer] = useState('')
+  const [bugsDetails, setBugsDetails] = useState({
+    bugProducts: [],
+    bugType: 'major',
+    bugDescription: '',
+  })
 
-  const btterSolution = (
-    <textarea
-      placeholder='What is the better solution? If you dont mind sharing. Your feedback is much appreaciated!'
-      type='text'
-      className='answer-wrapper text-area'
-    />
+  const handleProblemType = (type) => {
+    const tempBugsDetails = { ...bugsDetails }
+    tempBugsDetails.bugType = type
+    setBugsDetails(tempBugsDetails)
+  }
+
+  const betterSolutionQuestion = (
+    <>
+      <textarea
+        placeholder='What is the better solution? If you dont mind sharing. Your feedback is much appreaciated!'
+        type='text'
+        className='answer-wrapper text-area'
+      />
+      <hr className='horizontal-seperator' />
+    </>
+  )
+
+  const bugsThingsForm = (
+    <>
+      <div>
+        <p className='question-lable'>
+          Which product(s) did you have an issue with? <IoIosAlert color='#666565' />
+        </p>
+        <div className='answer-wrapper drop-down-select'>
+          <p className='heading'>Select product(s)</p>
+          <BiChevronDown className='chevron-down' />
+        </div>
+
+        <div className='answer-wrapper drop-down-options'>
+          <p className='heading'>Select product(s)</p>
+        </div>
+      </div>
+
+      <div className='bugs-problem-btns'>
+        <p className='question-lable'>What was it?</p>
+        <span>
+          <Button
+            onSubmit={() => handleProblemType('major')}
+            name='One Major Problem'
+            borderRadius='0px'
+            border='0.5px solid #eeeeee'
+            backgroundColor={bugsDetails.bugType === 'major' ? '#1170dd3b' : '#fff'}
+            color={bugsDetails.bugType === 'major' ? '#1782e6' : '#000'}
+          />
+          <Button
+            onSubmit={() => handleProblemType('various')}
+            name='Various things'
+            borderRadius='0px'
+            border='0.5px solid #eeeeee'
+            backgroundColor={bugsDetails.bugType === 'various' ? '#1170dd3b' : '#fff'}
+            color={bugsDetails.bugType === 'various' ? '#1782e6' : '#000'}
+          />
+        </span>
+      </div>
+      <hr className='horizontal-seperator' />
+      <div className='problem-details'>
+        <p className='question-lable'>
+          What problem(s) did you encounter? <IoIosAlert color='#666565' />
+        </p>
+        <textarea
+          placeholder='What is the better solution? If you dont mind sharing. Your feedback is much appreaciated!'
+          type='text'
+          className='answer-wrapper text-area'
+        />
+      </div>
+      <hr className='horizontal-seperator' />
+    </>
   )
 
   return (
@@ -51,7 +117,8 @@ const CancellationSurvey = () => {
                     {answer.title}
                   </label>
                 </div>
-                {(selectedAnswer === answer.title && answer.id === 2) ? btterSolution : null}
+                {selectedAnswer === answer.title && answer.id === 2 ? betterSolutionQuestion : null}
+                {selectedAnswer === answer.title && answer.id === 4 ? bugsThingsForm : null}
               </Fragment>
             ))}
           </form>
@@ -76,7 +143,12 @@ const CancellationSurvey = () => {
                 backIcon
               />
             </div>
-            <Button name='Cancel Membership' disabled={!selectedAnswer} height='2rem' />
+            <Button
+              name='Cancel Membership'
+              disabled={!selectedAnswer}
+              backgroundColor='#FF3333'
+              height='2rem'
+            />
           </div>
         </div>
       </div>
