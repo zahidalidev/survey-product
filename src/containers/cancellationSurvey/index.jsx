@@ -24,7 +24,7 @@ const CancellationSurvey = () => {
           <p className='questions'>Can you tell us why you want to cancel your membership?</p>
           <form onChange={(e) => setSelectedAnswer(e.target.value)}>
             {answers.map((answer) => (
-              <div key={answer.id} className='answer-wrapper'>
+              <div key={answer.id} className={`answer-wrapper ${selectedAnswer === answer.title && 'active-answer-wrapper'}`}>
                 <input
                   type='radio'
                   id={answer.title}
