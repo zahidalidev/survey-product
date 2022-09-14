@@ -23,7 +23,16 @@
       align-self: flex-start;
     }
 
-    .product-info {
+    .sub-description {
+      align-self: flex-start;
+      color: $grey;
+      margin-top: -0.1rem;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .product-row {
       display: table;
       flex-direction: row;
 
@@ -31,11 +40,26 @@
         float: left;
         width: 20.5rem;
         align-self: flex-start;
+
+        .heading {
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: $dark-grey;
+          text-align: left;
+        }
+
+        .billing-toggle {
+          margin-top: -0.3rem;
+        }
       }
 
       .name-field {
         margin-right: 3.5rem;
       }
+    }
+
+    .bill-details {
+      margin-top: 1.5rem;
     }
 
     .product-actions {
@@ -52,6 +76,15 @@
     .product-end {
       justify-content: flex-end;
     }
+
+  }
+
+  .horizontal-seperator {
+    border-top: 1px solid $light-grey;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 109%;
+    margin-left: -4.5%;
   }
 
   @media screen and (max-width: 1070px) {
@@ -63,7 +96,7 @@
       float: left !important;
       width: 90% !important;
     }
-    .product-info {
+    .product-row {
       float: left !important;
       width: 100% !important;
     }
@@ -74,7 +107,7 @@
       float: left !important;
       width: 90% !important;
     }
-    .product-info {
+    .product-row {
       float: left !important;
       width: 100% !important;
 
