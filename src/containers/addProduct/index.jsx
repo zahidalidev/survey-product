@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
-import { Button, Input } from 'components'
+import { Button, Input, UploadImage } from 'components'
 import colors from 'config/theme'
 
 import 'containers/addProduct/styles.scss'
 
 const AddProduct = () => {
   const navigate = useNavigate()
+  const [image, setImage] = useState()
 
   return (
     <div className='main-product-container'>
@@ -14,11 +16,11 @@ const AddProduct = () => {
         <h2>Create a Product or Service</h2>
         <h3 className='sub-heading'>General Info</h3>
         <div className='product-info'>
-          <div className='name-field'>
+          <div className='product-field name-field'>
             <Input title='Product Name' placeholder='E.g. Website Maintainance, SEO, etc.' />
           </div>
-          <div className='name-field'>
-            <h3>ajhsdljsa</h3>
+          <div className='product-field'>
+            <UploadImage image={image} setImage={setImage} title='Product Name' />
           </div>
         </div>
         <div className='product-actions product-end'>

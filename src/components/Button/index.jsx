@@ -14,6 +14,7 @@ const Button = ({
   border,
   backIcon,
   borderRadius = '5px',
+  fontWeight = '700',
 }) => (
   <button
     disabled={disabled}
@@ -27,6 +28,7 @@ const Button = ({
       height,
       border,
       borderRadius,
+      fontWeight,
     }}
   >
     { backIcon && <IoArrowBack className='backIcon' /> }

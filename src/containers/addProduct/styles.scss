@@ -27,9 +27,14 @@
       display: table;
       flex-direction: row;
 
-      .name-field {
+      .product-field {
         float: left;
-        width: 22rem;
+        width: 20.5rem;
+        align-self: flex-start;
+      }
+
+      .name-field {
+        margin-right: 3.5rem;
       }
     }
 
@@ -60,7 +65,7 @@
     }
     .product-info {
       float: left !important;
-      width: 90% !important;
+      width: 100% !important;
     }
   }
 
@@ -71,9 +76,9 @@
     }
     .product-info {
       float: left !important;
-      width: 80% !important;
+      width: 100% !important;
 
-      .name-field {
+      .product-field {
         float: left !important;
         width: 80% !important;
       }
