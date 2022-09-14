@@ -63,8 +63,7 @@
       padding-left: 15px;
       align-items: center;
       margin-top: 1rem;
-
-      width: 62rem;
+      width: 50rem;
       flex-direction: row;
 
       .radio-btn {
@@ -86,18 +85,21 @@
       padding: 1rem;
       border-radius: 5px;
       margin-top: 2rem;
+      align-items: center;
+      flex-direction: row;
 
       .content {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: row;
         text-align: start;
+        margin-top: -1rem;
 
         .icon {
           color: $error;
           font-size: 1.2rem;
           width: $col-1;
-          margin-top: -1.1rem;
+          margin-top: 1.1rem;
         }
 
         .description {
@@ -124,13 +126,17 @@
       width: 90% !important;
     }
 
+    .alert-box {
+      float: left !important;
+      width: 100% !important;
+    }
+
     .cancel-survey {
       .answer-wrapper {
         .label {
           font-size: 0.7rem;
         }
       }
-
     }
   }
 
@@ -142,8 +148,12 @@
 
     .answer-wrapper {
       float: left !important;
-      width: 90% !important;
+      width: 100% !important;
     }
 
+    .alert-box {
+      float: center !important;
+      width: 95% !important;
+    }
   }
 }

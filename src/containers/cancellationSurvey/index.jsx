@@ -1,5 +1,5 @@
 import { BiChevronLeft } from 'react-icons/bi'
-// import { IoIosAlert } from 'react-icons/io'
+import { IoIosAlert } from 'react-icons/io'
 
 import answers from 'utils/constants/cancellationSurvey'
 
@@ -36,7 +36,7 @@ const CancellationSurvey = () => {
               </div>
             ))}
           </form>
-          {/* <div className='alert-box'>
+          <div className='alert-box'>
             <div className='content'>
               <IoIosAlert className='icon' />
               <p className='description'>
@@ -45,7 +45,7 @@ const CancellationSurvey = () => {
                 cost ongoing (regardless of future price increases)
               </p>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
