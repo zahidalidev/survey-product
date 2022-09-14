@@ -1,0 +1,43 @@
+@import 'variables' ;
+
+.input-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  .heading {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $dark-grey;
+  }
+
+  .input-wrapepr {
+    display: flex;
+    width: $col-12;
+    border: 1px solid $light-grey;
+    height: 3rem;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-right: 5px;
+    margin-top: -0.3rem;
+
+    .input {
+      border: none;
+      font-size: 0.97rem;
+      width: $col-12;
+      color: $dark-grey;
+    }
+
+    .input:focus{
+      outline: none;
+    }
+
+    .input::placeholder{
+      color: $dark-grey;
+    }
+  }
+
+  .input-wrapepr:hover {
+    border: 1px solid $dark-grey;
+  }
+}
