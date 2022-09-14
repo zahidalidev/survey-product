@@ -2,7 +2,6 @@
 
 .btn-wrapper {
   border-radius: 5px;
-  height: 2.7rem;
   float: left;
   outline: none;
   font-size: 0.9rem;
@@ -11,4 +10,11 @@
   padding-left: 15px;
   padding-right: 15px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  .backIcon {
+    margin-right: 5px;
+    margin-bottom: 2px;
+  }
 }

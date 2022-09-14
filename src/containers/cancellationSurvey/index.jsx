@@ -1,12 +1,15 @@
 import { BiChevronLeft } from 'react-icons/bi'
 import { IoIosAlert } from 'react-icons/io'
+import { useState } from 'react'
 
 import answers from 'utils/constants/cancellationSurvey'
 
 import 'containers/cancellationSurvey/styles.scss'
+import Button from 'components/Button'
 
 const CancellationSurvey = () => {
-  console.log('asdh')
+  const [selectedAnswer, setSelectedAnswer] = useState('')
+
   return (
     <div className='main-survey-container'>
       <div className='survey-container'>
@@ -19,7 +22,7 @@ const CancellationSurvey = () => {
         <div className='cancel-survey'>
           <h3>We&apos;re are sad to see you go...</h3>
           <p className='questions'>Can you tell us why you want to cancel your membership?</p>
-          <form onChange={(e) => console.log(e.target.value)}>
+          <form onChange={(e) => setSelectedAnswer(e.target.value)}>
             {answers.map((answer) => (
               <div key={answer.id} className='answer-wrapper'>
                 <input
@@ -45,6 +48,12 @@ const CancellationSurvey = () => {
                 cost ongoing (regardless of future price increases)
               </p>
             </div>
+          </div>
+          <div className={`survey-actions survey-${!selectedAnswer ? 'end' : 'between'}`}>
+            <div className='back-btn'>
+              <Button name='Back' height='2rem' color='#000' backgroundColor='#fff' border='1px solid #eeeeee' backIcon />
+            </div>
+            <Button name='Cancel Membership' disabled={!selectedAnswer} height='2rem' />
           </div>
         </div>
       </div>

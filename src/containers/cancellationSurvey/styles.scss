@@ -109,6 +109,25 @@
         }
       }
     }
+
+    .survey-actions {
+      display: flex;
+      width: 50rem;
+      margin-top: 2rem;
+      flex-direction: row;
+
+      .back-btn {
+        margin-right: 1vh;
+      }
+    }
+
+    .survey-end {
+      justify-content: flex-end;
+    }
+
+    .survey-between {
+      justify-content: space-between;
+    }
   }
 
   @media screen and (max-width: 450px) {
@@ -129,6 +148,11 @@
     .alert-box {
       float: left !important;
       width: 100% !important;
+    }
+
+    .survey-actions {
+      float: left !important;
+      width: 90% !important;
     }
 
     .cancel-survey {
@@ -154,6 +178,11 @@
     .alert-box {
       float: center !important;
       width: 95% !important;
+    }
+
+    .survey-actions {
+      float: left !important;
+      width: 90% !important;
     }
   }
 }
