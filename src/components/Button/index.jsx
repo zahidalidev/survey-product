@@ -1,11 +1,13 @@
 import { IoArrowBack } from 'react-icons/io5'
 
+import colors from 'config/theme'
+
 import 'components/Button/styles.scss'
 
 const Button = ({
   name,
-  backgroundColor = '#1782e6',
-  color = '#fff',
+  backgroundColor = colors.primary,
+  color = colors.white,
   onSubmit,
   disabled = false,
   height = '2.7rem',
@@ -19,8 +21,8 @@ const Button = ({
     onClick={onSubmit}
     className='btn-wrapper'
     style={{
-      backgroundColor: disabled ? '#F5F5F5' : backgroundColor,
-      color: disabled ? '#969696' : color,
+      backgroundColor: disabled ? colors.lightGrey3 : backgroundColor,
+      color: disabled ? colors.darkGrey : color,
       cursor: disabled && 'default',
       height,
       border,

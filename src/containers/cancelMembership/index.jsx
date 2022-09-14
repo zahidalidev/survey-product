@@ -3,6 +3,7 @@ import { MdClose } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 
 import { Button } from 'components'
+import colors from 'config/theme'
 
 import 'containers/cancelMembership/styles.scss'
 
@@ -16,7 +17,7 @@ const CancelMembership = () => {
         </div>
         <div className='card-container'>
           <div className='tag-wrapper'>
-            <BsFillTagsFill color='#1782e6' className='tag-icon' />
+            <BsFillTagsFill color={colors.primary} className='tag-icon' />
           </div>
           <div className='content-container'>
             <h2 className='heading'> Before You Go... </h2>
@@ -34,8 +35,8 @@ const CancelMembership = () => {
               <Button
                 onSubmit={() => navigate('/cancellation-survey')}
                 name="No, thanks! I'll cancel"
-                backgroundColor='#fff'
-                color='#1782e6'
+                backgroundColor={colors.white}
+                color={colors.primary}
               />
             </div>
           </div>

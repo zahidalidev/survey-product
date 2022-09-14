@@ -3,8 +3,9 @@ import { Fragment, useState } from 'react'
 import { IoIosAlert } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
-import { Button, BugsForm, TextArea } from 'components'
 import answers from 'utils/constants/cancellationSurvey'
+import { Button, BugsForm, TextArea } from 'components'
+import colors from 'config/theme'
 
 import 'containers/cancellationSurvey/styles.scss'
 
@@ -120,16 +121,16 @@ const CancellationSurvey = () => {
                 onSubmit={() => navigate('/cancel-membership')}
                 name='Back'
                 height='2rem'
-                color='#000'
-                backgroundColor='#fff'
-                border='1px solid #eeeeee'
+                color={colors.black}
+                backgroundColor={colors.white}
+                border={`1px solid ${colors.lightGrey2}`}
                 backIcon
               />
             </div>
             <Button
               name='Cancel Membership'
               disabled={!selectedAnswer}
-              backgroundColor='#FF3333'
+              backgroundColor={colors.error}
               height='2rem'
             />
           </div>
