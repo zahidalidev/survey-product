@@ -34,15 +34,79 @@
 
     .title {
       margin-left: 1rem;
+      font-weight: bold;
     }
   }
 
-  .cancel-modal {
-    width: 62rem;
+  .cancel-survey {
+    display: flex;
     min-height: 24rem;
     padding: 2rem;
     border-radius: 10px;
     background-color: $white;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    .questions {
+      color: $grey;
+      margin-top: -0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .answer-wrapper {
+      display: flex;
+      border: 1px solid $light-grey;
+      height: 3rem;
+      border-radius: 50px;
+      padding-left: 15px;
+      align-items: center;
+      margin-top: 1rem;
+
+      width: 62rem;
+      flex-direction: row;
+
+      .radio-btn {
+        width: 15px;
+        height: 15px;
+      }
+
+      .label {
+        margin-left: 10px;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+
+    .alert-box {
+      display: flex;
+      width: 49rem;
+      background-color: $light-warning;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-top: 2rem;
+
+      .content {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        text-align: start;
+
+        .icon {
+          color: $error;
+          font-size: 1.2rem;
+          width: $col-1;
+          margin-top: -1.1rem;
+        }
+
+        .description {
+          font-size: 0.9rem;
+          width: $col-11;
+          line-height: 1.7rem;
+        }
+      }
+    }
   }
 
   @media screen and (max-width: 450px) {
@@ -50,14 +114,36 @@
       display: inline-block !important;
     }
 
-    .cancel-modal {
-      float: left !important;
-      width: 80% !important;
-    }
-
     .breadcrumb {
       float: left !important;
-      width: 80% !important;
+      width: 90% !important;
     }
+
+    .answer-wrapper {
+      float: left !important;
+      width: 90% !important;
+    }
+
+    .cancel-survey {
+      .answer-wrapper {
+        .label {
+          font-size: 0.7rem;
+        }
+      }
+
+    }
+  }
+
+  @media screen and (max-width: 1070px) {
+    .breadcrumb {
+      float: left !important;
+      width: 90% !important;
+    }
+
+    .answer-wrapper {
+      float: left !important;
+      width: 90% !important;
+    }
+
   }
 }
