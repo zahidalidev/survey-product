@@ -63,7 +63,7 @@
       border-radius: 50px;
       padding-left: 15px;
       align-items: center;
-      margin-top: 1rem;
+      margin-bottom: 1rem;
       width: 44rem;
       flex-direction: row;
 
@@ -85,6 +85,10 @@
       text-align: left;
       margin-top: 3rem !important;
     }
+    .product-issue {
+      margin-top: 2rem !important;
+    }
+
 
     .text-area {
       height: 6rem;
@@ -172,16 +176,20 @@
       border-radius: 0px !important;
       justify-content: space-between;
       cursor: pointer;
+      background-color: $white;
+      padding-right: 15px !important;
+      width: 45rem;
+      margin-bottom: -0px;
 
       .heading {
         color: $grey;
         font-size: 0.9rem;
         font-weight: 500;
       }
+    }
 
-      .chevron-down {
-        margin-right: 15px !important;
-      }
+    .active {
+      border: 1px solid $primary;
     }
 
     .drop-down-options {
@@ -190,6 +198,32 @@
       background-color: $white;
       z-index: 100;
       margin-top: -1px;
+      flex-direction: column;
+      height: 9rem;
+      align-items: flex-start;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+      .option-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        padding: 12px;
+
+        .label {
+          margin-left: 0.5rem;
+          color: $grey;
+        }
+      }
+
+      .option-wrapper:hover {
+        background-color: $primary;
+
+        .label {
+          color: $white;
+        }
+      }
 
       .heading {
         color: $grey;
@@ -198,6 +232,42 @@
       }
     }
 
+  }
+
+  @media screen and (max-width: 1070px) {
+    .breadcrumb {
+      float: left !important;
+      width: 90% !important;
+    }
+  }
+
+  @media screen and (max-width: 796px) {
+    .answer-wrapper {
+      float: left !important;
+      width: 100% !important;
+    }
+
+    .alert-box {
+      float: center !important;
+      width: 95% !important;
+    }
+
+    .survey-actions {
+      float: left !important;
+      width: 90% !important;
+    }
+
+    .drop-down-select {
+      float: left !important;
+      width: 102% !important;
+      // margin-bottom: -10px !important;
+    }
+
+    .drop-down-options {
+      float: left !important;
+      width: 88% !important;
+      margin-top: 45px !important;
+    }
   }
 
   @media screen and (max-width: 450px) {
@@ -225,9 +295,17 @@
       width: 90% !important;
     }
 
+
+    .drop-down-select {
+      float: left !important;
+      width: 98% !important;
+    }
+
     .drop-down-options {
       float: left !important;
-      width: 40.5% !important;
+      width: 88% !important;
+      width: 76.5% !important;
+      margin-top: 45px !important;
     }
 
     .cancel-survey {
@@ -238,85 +316,4 @@
       }
     }
   }
-
-  @media screen and (max-width: 1070px) {
-    .breadcrumb {
-      float: left !important;
-      width: 90% !important;
-    }
-  }
-
-  @media screen and (max-width: 796px) {
-    .answer-wrapper {
-      float: left !important;
-      width: 100% !important;
-    }
-
-    .alert-box {
-      float: center !important;
-      width: 95% !important;
-    }
-
-    .survey-actions {
-      float: left !important;
-      width: 90% !important;
-    }
-
-    .drop-down-options {
-      float: left !important;
-      width: 91.5% !important;
-    }
-  }
 }
-
-// .dropdown-check-list .anchor {
-//   position: relative;
-//   cursor: pointer;
-//   display: inline-block;
-//   padding: 5px 50px 5px 10px;
-//   border: 1px solid #ccc;
-// }
-
-// .dropdown-check-list .anchor:after {
-//   position: absolute;
-//   content: "";
-//   border-left: 2px solid black;
-//   border-top: 2px solid black;
-//   padding: 5px;
-//   right: 10px;
-//   top: 20%;
-//   -moz-transform: rotate(-135deg);
-//   -ms-transform: rotate(-135deg);
-//   -o-transform: rotate(-135deg);
-//   -webkit-transform: rotate(-135deg);
-//   transform: rotate(-135deg);
-// }
-
-// .dropdown-check-list .anchor:active:after {
-//   right: 8px;
-//   top: 21%;
-// }
-
-// .dropdown-check-list ul.items {
-//   padding: 2px;
-//   display: none;
-//   margin: 0;
-//   border: 1px solid #ccc;
-//   border-top: none;
-// }
-
-// .dropdown-check-list ul.items li {
-//   list-style: none;
-// }
-
-// .dropdown-check-list.visible .anchor {
-//   color: #0094ff;
-// }
-
-// .dropdown-check-list.visible .items {
-//   display: block;
-// }
-
-// .items {
-//   position: absolute;
-// }

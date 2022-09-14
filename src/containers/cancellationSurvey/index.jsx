@@ -9,8 +9,36 @@ import Button from 'components/Button'
 
 const CancellationSurvey = () => {
   const [selectedAnswer, setSelectedAnswer] = useState('')
+  const [toggleSelect, setToggleSelect] = useState(false)
+  const [selectProducts, setselectProducts] = useState(0)
   const [bugsDetails, setBugsDetails] = useState({
-    bugProducts: [],
+    bugProducts: [
+      {
+        id: 0,
+        label: 'Product #1',
+        selected: false,
+      },
+      {
+        id: 1,
+        label: 'Product #2',
+        selected: false,
+      },
+      {
+        id: 2,
+        label: 'Product #3',
+        selected: false,
+      },
+      {
+        id: 3,
+        label: 'Product #4',
+        selected: false,
+      },
+      {
+        id: 4,
+        label: 'Product #5',
+        selected: false,
+      },
+    ],
     bugType: 'major',
     bugDescription: '',
   })
@@ -19,6 +47,13 @@ const CancellationSurvey = () => {
     const tempBugsDetails = { ...bugsDetails }
     tempBugsDetails.bugType = type
     setBugsDetails(tempBugsDetails)
+  }
+
+  const handleProduct = (index) => {
+    const tempBugsDetails = { ...bugsDetails }
+    tempBugsDetails.bugProducts[index].selected = !tempBugsDetails.bugProducts[index].selected
+    setBugsDetails(tempBugsDetails)
+    setselectProducts(tempBugsDetails.bugProducts.filter(item => item.selected).length)
   }
 
   const betterSolutionQuestion = (
@@ -35,19 +70,37 @@ const CancellationSurvey = () => {
   const bugsThingsForm = (
     <>
       <div>
-        <p className='question-lable'>
+        <p className='question-lable product-issue'>
           Which product(s) did you have an issue with? <IoIosAlert color='#666565' />
         </p>
-        <div className='answer-wrapper drop-down-select'>
-          <p className='heading'>Select product(s)</p>
+        <button
+          type='button'
+          onClick={() => setToggleSelect(!toggleSelect)}
+          className={`answer-wrapper drop-down-select ${toggleSelect && 'active'}`}
+        >
+          <p className='heading'>{ selectProducts > 0 ? `${selectProducts} products selected` : 'Select product(s)' }</p>
           <BiChevronDown className='chevron-down' />
-        </div>
-
-        <div className='answer-wrapper drop-down-options'>
-          <p className='heading'>Select product(s)</p>
-        </div>
+        </button>
+        {toggleSelect && (
+          <div className={`answer-wrapper drop-down-options ${toggleSelect && 'active'}`}>
+            {bugsDetails.bugProducts.map((product, index) => (
+              <div className='option-wrapper'>
+                <input
+                  type='checkbox'
+                  id={product.label}
+                  checked={product.selected}
+                  onChange={() => handleProduct(index)}
+                  value={product.label}
+                />
+                <label className='label' htmlFor={product.label}>
+                  {product.label}
+                </label>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-
+      <hr className='horizontal-seperator' />
       <div className='bugs-problem-btns'>
         <p className='question-lable'>What was it?</p>
         <span>
