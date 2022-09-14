@@ -78,6 +78,21 @@
       }
     }
 
+    .text-area {
+      height: 6rem;
+      border-radius: 2px;
+      padding-top: 1rem;
+      font-size: 0.8rem;
+      word-spacing: -4px;
+      overflow: auto;
+      outline: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      resize: vertical;
+    }
+
+
     .active-answer-wrapper {
       background-color: #1170dd3b;
     }
