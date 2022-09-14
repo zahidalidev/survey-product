@@ -1,9 +1,9 @@
 import { IoIosAlert } from 'react-icons/io'
 
 import { Button, Select, TextArea } from 'components'
+import colors from 'config/theme'
 
 import 'components/BugsForm/styles.scss'
-import colors from 'config/theme'
 
 const BugsForm = ({
   selectProducts, bugsDetails, handleProblemType, handleProduct,

@@ -11,7 +11,7 @@ const CancelMembership = () => {
   const navigate = useNavigate()
   return (
     <div className='main-container'>
-      <div className='cancel-modal'>
+      <div className='cancel-card'>
         <div className='close-icon'>
           <MdClose size='1.5rem' />
         </div>

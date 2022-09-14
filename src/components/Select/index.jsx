@@ -3,7 +3,6 @@ import { BiChevronDown } from 'react-icons/bi'
 
 const Select = ({ bugsDetails, selectProducts, handleProduct }) => {
   const [toggleSelect, setToggleSelect] = useState(false)
-
   return (
     <>
       <button
