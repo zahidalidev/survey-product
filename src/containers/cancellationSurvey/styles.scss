@@ -63,7 +63,7 @@
       padding-left: 15px;
       align-items: center;
       margin-top: 1rem;
-      width: 50rem;
+      width: 44rem;
       flex-direction: row;
 
       .radio-btn {
@@ -84,7 +84,7 @@
 
     .alert-box {
       display: flex;
-      width: 49rem;
+      width: 43rem;
       background-color: $light-warning;
       padding: 1rem;
       border-radius: 5px;
@@ -116,7 +116,7 @@
 
     .survey-actions {
       display: flex;
-      width: 50rem;
+      width: 44rem;
       margin-top: 2rem;
       flex-direction: row;
 
@@ -173,7 +173,9 @@
       float: left !important;
       width: 90% !important;
     }
+  }
 
+  @media screen and (max-width: 796px) {
     .answer-wrapper {
       float: left !important;
       width: 100% !important;
