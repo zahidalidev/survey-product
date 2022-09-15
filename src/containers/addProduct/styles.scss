@@ -121,6 +121,8 @@
           margin-right: 2rem;
           cursor: pointer;
           padding: 7px;
+          width: 15px;
+          height: 15px;
           border-radius: 20px;
         }
 
@@ -153,10 +155,9 @@
           visibility: hidden;
         }
 
-        .ellipsis-icon:hover, &:hover .edit-action-card {
+        .edit-action-card-active {
           visibility: visible !important;
         }
-
       }
     }
 

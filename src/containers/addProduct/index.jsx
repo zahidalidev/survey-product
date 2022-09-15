@@ -141,7 +141,7 @@ const AddProduct = () => {
                   backgroundColor={colors.white}
                 />
               </div>
-              <IoEllipsisHorizontal className='ellipsis-icon tooltip-action' />
+              <IoEllipsisHorizontal className='ellipsis-icon' />
               <IoChevronDown className='chevron' size='1.2rem' />
             </div>
           </div>
