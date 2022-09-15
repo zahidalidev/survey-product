@@ -6,7 +6,9 @@ import {
 } from 'components'
 import colors from 'config/theme'
 import periods from 'utils/constants/addProduct'
-import { IoAdd, IoChevronDown, IoEllipsisHorizontal } from 'react-icons/io5'
+import {
+  IoAdd, IoChevronDown, IoChevronUp, IoEllipsisHorizontal,
+} from 'react-icons/io5'
 
 import 'containers/addProduct/styles.scss'
 
@@ -92,6 +94,12 @@ const AddProduct = () => {
             </div>
           </div>
         ))}
+        <div className='plan-row plan-form-row'>
+          <div className='plan-actions'>
+            <IoEllipsisHorizontal className='ellipsis-icon' />
+            <IoChevronUp size='1.2rem' />
+          </div>
+        </div>
 
         <form className={plans.length !== 0 && 'plan-form'} onSubmit={handlePlan}>
           <div className='product-row'>
