@@ -13,7 +13,7 @@ const CancelMembership = () => {
     <div className='main-container'>
       <div className='cancel-card'>
         <div className='close-icon'>
-          <MdClose size='1.5rem' />
+          <MdClose onClick={() => navigate('/home')} size='1.5rem' />
         </div>
         <div className='card-container'>
           <div className='tag-wrapper'>

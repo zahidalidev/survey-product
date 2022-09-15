@@ -6,6 +6,7 @@ const MultiSelect = ({ bugsDetails, selectProducts, handleProduct }) => {
   return (
     <>
       <button
+        data-testid='multi-select'
         type='button'
         onClick={() => setToggleSelect(!toggleSelect)}
         className={`answer-wrapper drop-down-select ${toggleSelect && 'active'}`}

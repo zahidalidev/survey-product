@@ -51,7 +51,7 @@ const AddProductForm = ({
   )
 
   return (
-    <form className={plans.length !== 0 && 'plan-form'} onSubmit={handlePlan}>
+    <form data-testid='product-form' className={plans?.length !== 0 && 'plan-form'} onSubmit={handlePlan}>
       <div className='product-row'>
         <div className='product-field name-field'>
           <Input
