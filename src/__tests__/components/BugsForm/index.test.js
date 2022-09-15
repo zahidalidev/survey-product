@@ -32,14 +32,14 @@ describe('BugsForm Component', () => {
     })
   })
 
-  it('should have "One Major Problem" button', async () => {
+  it('should have button with name "One Major Problem" button', async () => {
     await waitFor(() => {
       const button = screen.getByRole('button', { name: 'One Major Problem' })
       expect(button).toBeInTheDocument()
     })
   })
 
-  it('should have "Various things" button', async () => {
+  it('should have button with name "Various things" button', async () => {
     await waitFor(() => {
       const button = screen.getByRole('button', { name: 'Various things' })
       expect(button).toBeInTheDocument()

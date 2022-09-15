@@ -20,21 +20,21 @@ describe('AddProductForm Component', () => {
     })
   })
 
-  it('should have recurring button', async () => {
+  it('should have button with name recurring button', async () => {
     await waitFor(() => {
       const button = screen.getByRole('button', { name: 'Recurring' })
       expect(button).toBeInTheDocument()
     })
   })
 
-  it('should have "One time" button', async () => {
+  it('should have button with name "One time" button', async () => {
     await waitFor(() => {
       const button = screen.getByRole('button', { name: 'One time' })
       expect(button).toBeInTheDocument()
     })
   })
 
-  it('should have "Add Another Plan" button', async () => {
+  it('should have button with name  "Add Another Plan" button', async () => {
     await waitFor(() => {
       const button = screen.getByRole('button', { name: 'Add Another Plan' })
       expect(button).toBeInTheDocument()
