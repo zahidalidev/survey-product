@@ -26,6 +26,18 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', 'scss'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    fallback: {
+      fs: false,
+      tls: false,
+      net: false,
+      path: false,
+      zlib: false,
+      http: false,
+      https: false,
+      stream: false,
+      crypto: false,
+      'crypto-browserify': require.resolve('crypto-browserify'),
+    },
   },
   module: {
     rules: [
@@ -41,11 +53,7 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
-        ],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|svg|webp)$/,
@@ -60,3 +68,33 @@ module.exports = {
   },
   target: 'web',
 }
+
+// const path = require('path')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+// module.exports = {
+//   output: {
+//     path: path.join(__dirname, '/dist'),
+//     filename: 'index.bundle.js',
+//   },
+//   devServer: {
+//     port: 3010,
+//     watchContentBase: true,
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /\.(js|jsx)$/,
+//         exclude: /node_modules/,
+//         use: {
+//           loader: 'babel-loader',
+//         },
+//       },
+//       {
+//         test: /\.scss$/,
+//         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+//       },
+//     ],
+//   },
+//   plugins: [new MiniCssExtractPlugin()],
+// }
