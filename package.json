@@ -19,7 +19,7 @@
     "build": "webpack --config webpack.config.js",
     "serve": "serve -s build",
     "eject": "react-scripts eject",
-    "start": "react-scripts test",
+    "start": "react-scripts start",
     "test": "react-scripts test"
   },
   "eslintConfig": {
