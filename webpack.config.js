@@ -1,53 +1,62 @@
 const path = require('path')
+const TerserPlugin = require('terser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  mode: 'production',
+  entry: path.join(__dirname, 'src', 'index.js'),
   output: {
-    filename: 'main.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html'),
+      hash: true,
+      publicPath: '/',
+      template: './public/index.html',
+      filename: './index.html',
+      inject: false,
     }),
   ],
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'build'),
-    },
-    port: 3000,
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', 'scss'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   module: {
     rules: [
       {
-        test: /\.js$|jsx|.scss$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+      {
+        test: /\.(css|scss)$/,
         use: [
-          {
-            loader: 'babel-loader',
-          },
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'sass-loader',
-          },
+          'style-loader',
+          'css-loader',
+          'sass-loader',
         ],
+      },
+      {
+        test: /\.(png|svg|webp)$/,
+        // use: ['file-loader'],
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'assets/images',
+        },
       },
     ],
   },
-  resolve: {
-    extensions: ['*', '.js', '.jsx'],
-    alias: {
-      components: path.resolve(__dirname, 'src/components/'),
-      config: path.resolve(__dirname, 'src/config/'),
-      containers: path.resolve(__dirname, 'src/containers/'),
-      utils: path.resolve(__dirname, 'src/utils/'),
-    },
-  },
+  target: 'web',
 }
