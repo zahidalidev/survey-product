@@ -33,6 +33,7 @@ const AddProduct = () => {
     const allPlans = [...plans]
     if (planName && planPrice) {
       allPlans.push({
+        id: plans.length,
         name: planName,
         status: 'active',
         price: planPrice,
@@ -51,7 +52,8 @@ const AddProduct = () => {
 
   const handleDuplicatePlan = (index) => {
     const allPlans = [...plans]
-    const newPlan = { ...allPlans[index], action: false }
+    allPlans[index].action = false
+    const newPlan = { ...allPlans[index] }
     allPlans.push(newPlan)
     setPlans(allPlans)
   }
@@ -124,7 +126,7 @@ const AddProduct = () => {
           multiple plans.
         </p>
         {plans.map((plan, index) => (
-          <div className='plan-row'>
+          <div key={plan.id} className='plan-row'>
             <div className='plane-title'>
               <p className='heading name'>{plan.name}</p>
             </div>
