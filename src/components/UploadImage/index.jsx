@@ -40,7 +40,7 @@ const UploadImage = ({
   )
 
   return (
-    <div className='upload-container'>
+    <div data-testid='upload-image' className='upload-container'>
       <p className='heading'>
         {title} <span className='heading-option'>(Optional)</span>
       </p>

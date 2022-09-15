@@ -38,8 +38,8 @@ describe('UploadImage Component', () => {
 
   it('should have heading', async () => {
     await waitFor(() => {
-      const textbox = screen.getByText('test title')
-      expect(textbox).toBeInTheDocument()
+      const heading = screen.getByText('test title')
+      expect(heading).toBeInTheDocument()
     })
   })
 

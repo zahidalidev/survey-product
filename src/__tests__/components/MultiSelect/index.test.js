@@ -22,8 +22,8 @@ describe('MultiSelect Component', () => {
 
   it('should have heading', async () => {
     await waitFor(() => {
-      const button = screen.getByText('Select product(s)')
-      expect(button).toBeInTheDocument()
+      const heading = screen.getByText('Select product(s)')
+      expect(heading).toBeInTheDocument()
     })
   })
 })

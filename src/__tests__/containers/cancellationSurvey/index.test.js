@@ -2,27 +2,27 @@ import {
   render, screen, waitFor, act,
 } from '@testing-library/react'
 
-import Input from 'components/Input'
+import CancellationSurvey from 'containers/cancellationSurvey'
 import { TestApp } from 'utils/test'
 
-describe('Input Component', () => {
-  beforeEach(() => act(() => render(<Input title='test' type='text' placeholder='test placeholder' />, { wrapper: TestApp })))
+describe('CancellationSurvey Page', () => {
+  beforeEach(() => act(() => render(<CancellationSurvey />, { wrapper: TestApp })))
 
   it('should render correctly', () => {
     expect.assertions(1)
     expect(screen).toMatchSnapshot()
   })
 
-  it('should have textbox', async () => {
+  it('should have 6 buttons', async () => {
     await waitFor(() => {
-      const textbox = screen.getByRole('textbox')
-      expect(textbox).toBeInTheDocument()
+      const button = screen.getAllByRole('button')
+      expect(button).toHaveLength(3)
     })
   })
 
   it('should have heading', async () => {
     await waitFor(() => {
-      const heading = screen.getByText('test')
+      const heading = screen.getByText('Cancellation Survey')
       expect(heading).toBeInTheDocument()
     })
   })

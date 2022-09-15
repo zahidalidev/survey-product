@@ -15,8 +15,8 @@ describe('SingleSelect Component', () => {
 
   it('should have select tag', async () => {
     await waitFor(() => {
-      const button = screen.getByTestId('single-select')
-      expect(button).toBeInTheDocument()
+      const select = screen.getByTestId('single-select')
+      expect(select).toBeInTheDocument()
     })
   })
 })

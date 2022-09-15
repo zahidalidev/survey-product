@@ -15,15 +15,15 @@ describe('TextArea Component', () => {
 
   it('should have textbox', async () => {
     await waitFor(() => {
-      const button = screen.getByRole('textbox')
-      expect(button).toBeInTheDocument()
+      const textbox = screen.getByRole('textbox')
+      expect(textbox).toBeInTheDocument()
     })
   })
 
   it('should have heading', async () => {
     await waitFor(() => {
-      const button = screen.getByPlaceholderText('test placeholder')
-      expect(button).toBeInTheDocument()
+      const heading = screen.getByPlaceholderText('test placeholder')
+      expect(heading).toBeInTheDocument()
     })
   })
 })

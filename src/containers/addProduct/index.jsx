@@ -78,7 +78,7 @@ const AddProduct = () => {
 
   return (
     <div className='main-product-container'>
-      <div className='product-card'>
+      <div data-testid='plan-card' className='product-card'>
         <h2>Create a Product or Service</h2>
         <h3 className='sub-heading'>General Info</h3>
         <div className='product-row'>
@@ -105,7 +105,7 @@ const AddProduct = () => {
               <p className='heading price'>${plan.price}</p>
             </div>
             <div className='plan-actions'>
-              <div className={`edit-action-card ${plan.action && 'edit-action-card-active'}`}>
+              <div className={`edit-action-card ${plan.action ? 'edit-action-card-active' : ''}`}>
                 <Button
                   onSubmit={() => handleDuplicatePlan(index)}
                   height='1rem'

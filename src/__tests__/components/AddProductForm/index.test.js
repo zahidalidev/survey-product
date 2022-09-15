@@ -50,8 +50,8 @@ describe('AddProductForm Component', () => {
 
   it('should have heading', async () => {
     await waitFor(() => {
-      const textbox = screen.getAllByText('Billing Type')[0]
-      expect(textbox).toBeInTheDocument()
+      const heading = screen.getAllByText('Billing Type')[0]
+      expect(heading).toBeInTheDocument()
     })
   })
 
