@@ -16,6 +16,33 @@ const AddProduct = () => {
   const [billingType, setBillingType] = useState('recurring')
   const [selectedPeriod, setSelectedPeriod] = useState('months')
 
+  const billPeriod = (
+    <>
+      <div className='fields'>
+        <Input title='Bill Every' min={1} placeholder='1' type='number' />
+      </div>
+      <div className='fields-select'>
+        <SingleSelect
+          data={periods}
+          selectedValue={selectedPeriod}
+          setSelectedValue={setSelectedPeriod}
+        />
+      </div>
+    </>
+  )
+
+  const billCycles = (
+    <div className='product-row bill-details'>
+      <div className='product-field name-field'>
+        <Input title='No. of Billing Cycles' placeholder='E.g. 6, 12, etc.' subTitle='(Optional)' />
+        <p className='billing-cycle-description'>
+          Leave this empty to auto-renew this plan until canceled.
+        </p>
+      </div>
+      <div className='product-field bill-duration' />
+    </div>
+  )
+
   return (
     <div className='main-product-container'>
       <div className='product-card'>
@@ -68,27 +95,10 @@ const AddProduct = () => {
             <Input title='Price' min={1} placeholder='0.00' rightTitle='USD' type='number' />
           </div>
           <div className='product-field bill-duration'>
-            <div className='fields'>
-              <Input title='Bill Every' min={1} placeholder='1' type='number' />
-            </div>
-            <div className='fields-select'>
-              <SingleSelect
-                data={periods}
-                selectedValue={selectedPeriod}
-                setSelectedValue={setSelectedPeriod}
-              />
-            </div>
+            {billingType === 'recurring' && billPeriod}
           </div>
         </div>
-        <div className='product-row bill-details'>
-          <div className='product-field name-field'>
-            <Input title='No. of Billing Cycles' placeholder='E.g. 6, 12, etc.' subTitle='(Optional)' />
-            <p className='billing-cycle-description'>
-              Leave this empty to auto-renew this plan until canceled.
-            </p>
-          </div>
-          <div className='product-field bill-duration' />
-        </div>
+        {billingType === 'recurring' && billCycles}
         <div className='product-row bill-details'>
           <div className='product-field name-field'>
             <Button
@@ -104,7 +114,7 @@ const AddProduct = () => {
           <div className='product-field bill-duration' />
         </div>
         <hr className='horizontal-seperator' />
-        <div className='product-actions product-end'>
+        <div className='product-actions'>
           <div className='cancel-btn'>
             <Button
               onSubmit={() => navigate('/cancel-membership')}

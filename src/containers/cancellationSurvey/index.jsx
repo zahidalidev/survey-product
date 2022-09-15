@@ -43,7 +43,6 @@ const CancellationSurvey = () => {
       },
     ],
     bugType: 'major',
-    bugDescription: '',
   })
 
   const handleProblemType = (type) => {

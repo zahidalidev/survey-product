@@ -2,21 +2,20 @@
 
 .main-product-container {
   display: flex;
-  padding-top: 4rem;
   min-height: 100vh;
   background-color: $light-grey;
   justify-content: center;
 
   .product-card {
+    margin-top: 4rem;
     display: flex;
-    min-height: 24rem;
     padding: 2rem;
     border-radius: 10px;
     background-color: $white;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 6.5rem;
 
     .sub-heading {
       margin-top: 1rem;
@@ -93,18 +92,14 @@
     .product-actions {
       display: flex;
       width: 44rem;
-      margin-top: 2rem;
+      margin-top: 0.5rem;
       flex-direction: row;
+      justify-content: flex-end;
 
       .cancel-btn {
         margin-right: 1vh;
       }
     }
-
-    .product-end {
-      justify-content: flex-end;
-    }
-
   }
 
   .horizontal-seperator {
