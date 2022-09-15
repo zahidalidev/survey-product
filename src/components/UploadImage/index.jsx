@@ -1,9 +1,10 @@
 import { IoAdd } from 'react-icons/io5'
 import { useRef, useState } from 'react'
 
-import 'components/UploadImage/styles.scss'
 import { Button } from 'components'
 import colors from 'config/theme'
+
+import 'components/UploadImage/styles.scss'
 
 const UploadImage = ({
   title, placeholder, image, setImage,
@@ -30,8 +31,6 @@ const UploadImage = ({
       }
     }
     setLoading(false)
-    // setTimeout(() => {
-    // }, [2000])
   }
 
   const imageBox = image ? (

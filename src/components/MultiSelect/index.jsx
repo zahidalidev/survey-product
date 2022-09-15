@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import { BiChevronDown } from 'react-icons/bi'
+import { useState } from 'react'
 
 const MultiSelect = ({ bugsDetails, selectProducts, handleProduct }) => {
   const [toggleSelect, setToggleSelect] = useState(false)

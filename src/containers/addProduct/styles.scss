@@ -6,10 +6,6 @@
   background-color: $light-grey;
   justify-content: center;
 
-  .plan-form {
-    margin-top: 1rem;
-  }
-
   .product-card {
     margin-top: 4rem;
     display: flex;
@@ -49,11 +45,6 @@
           font-weight: 500;
           color: $dark-grey;
           text-align: left;
-        }
-
-        .billing-toggle {
-          margin-top: -0.3rem;
-
         }
 
         .billing-actions {
@@ -169,25 +160,6 @@
       margin-bottom: -3.5rem;
     }
 
-    .bill-details {
-      margin-top: 1.5rem;
-    }
-
-    .bill-duration {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-
-      .fields {
-        margin-right: 2rem;
-        width: 40%;
-      }
-
-      .fields-select {
-        width: 40%;
-      }
-    }
-
     .product-actions {
       display: flex;
       width: 44rem;
@@ -209,15 +181,12 @@
     margin-left: -4.5%;
   }
 
-  @media screen and (max-width: 1070px) {
-
-  }
-
   @media screen and (max-width: 796px) {
     .product-actions {
       float: left !important;
       width: 90% !important;
     }
+
     .product-row {
       float: left !important;
       width: 100% !important;
@@ -229,6 +198,7 @@
       float: left !important;
       width: 90% !important;
     }
+
     .product-row {
       float: left !important;
       width: 100% !important;
@@ -239,10 +209,8 @@
       }
     }
 
-    .product-card {
-      .plan-row .name, .status, .price {
-        font-size: 0.85rem;
-      }
+    .product-card .plan-row .name, .status, .price {
+      font-size: 0.85rem;
     }
   }
 }

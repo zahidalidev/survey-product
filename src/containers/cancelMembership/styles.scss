@@ -62,10 +62,19 @@
           margin-top: 2rem;
         }
       }
-
-
     }
+  }
 
+  @media screen and (max-width: 694px) {
+    .cancel-card {
+      height: 28rem;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    .cancel-card {
+      height: 33rem;
+    }
   }
 
   @media screen and (max-width: 450px) {

@@ -290,12 +290,8 @@
       margin-top: 45px !important;
     }
 
-    .cancel-survey {
-      .answer-wrapper {
-        .label {
-          font-size: 0.7rem;
-        }
-      }
+    .cancel-survey .answer-wrapper .label {
+      font-size: 0.7rem;
     }
   }
 }

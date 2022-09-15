@@ -1,0 +1,28 @@
+@import 'variables' ;
+
+.plan-form {
+  margin-top: 1rem;
+}
+
+.billing-toggle {
+  margin-top: -0.3rem;
+}
+
+.bill-details {
+  margin-top: 1.5rem;
+
+  .bill-duration {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    .fields {
+      margin-right: 2rem;
+      width: 40%;
+    }
+
+    .fields-select {
+      width: 40%;
+    }
+  }
+}

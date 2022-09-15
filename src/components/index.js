@@ -1,5 +1,6 @@
 import React from 'react'
 
+export const AddProductForm = React.lazy(() => import('components/AddProductForm'))
 export const BugsForm = React.lazy(() => import('components/BugsForm'))
 export const Button = React.lazy(() => import('components/Button'))
 export const Input = React.lazy(() => import('components/Input'))
