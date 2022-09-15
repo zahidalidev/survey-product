@@ -1,70 +1,78 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cancellation-Survey & Add-Product
 
-## Available Scripts
+## Requirements
 
-In the project directory, you can run:
+For development, you will only need Node.js installed on your environment.
+And please use the appropriate [Editorconfig](http://editorconfig.org/) plugin for your Editor (not mandatory).
 
-### `npm start`
+### Node
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Node](http://nodejs.org/) is really easy to install & now include [NPM](https://npmjs.org/).
+You should be able to run the following command after the installation procedure
+below.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    $ node --version
+    v14.20.0
 
-### `npm test`
+    $ npm --version
+    v8.18.0
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Node installation on OS X
 
-### `npm run build`
+You will need to use a Terminal. On OS X, you can find the default terminal in
+`/Applications/Utilities/Terminal.app`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Please install [Homebrew](http://brew.sh/) if it's not already done with the following command.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    $ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If everything when fine, you should run
 
-### `npm run eject`
+    brew install node
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Node installation on Linux
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    sudo apt-get install python-software-properties
+    sudo add-apt-repository ppa:chris-lea/node.js
+    sudo apt-get update
+    sudo apt-get install nodejs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Install
 
-## Learn More
+    $ npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Start & watch
 
-### Code Splitting
+    $ npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Webpack build
 
-### Analyzing the Bundle Size
+    $ npm run build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Run webpack build
 
-### Making a Progressive Web App
+    $ npm run serve
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Languages & tools
 
-### Advanced Configuration
+### JavaScript
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [React](http://facebook.github.io/react) is used for UI.
+- [eslint](https://eslint.org/) for better code quality.
+- [prettier](https://prettier.io/) for maintaining code quality in project.
+- [react-testing-library](https://testing-library.com/docs/react-testing-library/intro) for testing React applications.
 
-### Deployment
+### CSS
+- [SCSS](https://sass-lang.com/) is used to write futureproof CSS in nested form.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Notes
+- Implemented a survey to cancel membership.
+- Implemented a form to add product.
+- Added ESLint for consistency and better code quality.
+- Added Basic Test Cases for components.
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future Work
+- We can add detailed test cases.
