@@ -1,9 +1,9 @@
-import { BsFillTagsFill } from 'react-icons/bs'
 import { MdClose } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 
 import { Button } from 'components'
 import colors from 'config/theme'
+import tagIcon from 'assets/discount-tag.svg'
 
 import 'containers/cancelMembership/styles.scss'
 
@@ -13,15 +13,15 @@ const CancelMembership = () => {
     <div className='main-container'>
       <div className='cancel-card'>
         <div className='close-icon'>
-          <MdClose size='1.5rem' />
+          <MdClose onClick={() => navigate('/home')} size='1.5rem' />
         </div>
         <div className='card-container'>
           <div className='tag-wrapper'>
-            <BsFillTagsFill color={colors.primary} className='tag-icon' />
+            <img src={tagIcon} className='tag-icon' alt='Discount Tag' />
           </div>
           <div className='content-container'>
             <h2 className='heading'> Before You Go... </h2>
-            <h2 className='heading'> Would 50% Off For 6 Months Help?</h2>
+            <h2 className='heading discount-heading'> Would 50% Off For 6 Months Help?</h2>
             <p className='description'>
               We know things REALLY sucks in the world right now - and many businesses and
               freelancers are struggling to stay afloat during this COVID-19 crises.

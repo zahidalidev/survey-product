@@ -1,0 +1,23 @@
+@import 'variables' ;
+
+.single-select-container {
+  display: flex;
+  width: $col-12;
+  border: 1px solid $light-grey;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 3rem;
+  border-radius: 5px;
+
+  .select {
+    height: 3rem;
+    background-color: $white;
+    width: $col-12;
+    border: none;
+    font-size: 0.95rem;
+  }
+
+  .select:focus {
+    outline: none;
+  }
+}

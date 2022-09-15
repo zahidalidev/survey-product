@@ -1,11 +1,12 @@
-import { useState } from 'react'
 import { BiChevronDown } from 'react-icons/bi'
+import { useState } from 'react'
 
-const Select = ({ bugsDetails, selectProducts, handleProduct }) => {
+const MultiSelect = ({ bugsDetails, selectProducts, handleProduct }) => {
   const [toggleSelect, setToggleSelect] = useState(false)
   return (
     <>
       <button
+        data-testid='multi-select'
         type='button'
         onClick={() => setToggleSelect(!toggleSelect)}
         className={`answer-wrapper drop-down-select ${toggleSelect && 'active'}`}
@@ -36,4 +37,4 @@ const Select = ({ bugsDetails, selectProducts, handleProduct }) => {
     </>
   )
 }
-export default Select
+export default MultiSelect

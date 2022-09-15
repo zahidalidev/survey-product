@@ -1,5 +1,3 @@
-import { IoArrowBack } from 'react-icons/io5'
-
 import colors from 'config/theme'
 
 import 'components/Button/styles.scss'
@@ -12,12 +10,14 @@ const Button = ({
   disabled = false,
   height = '2.7rem',
   border,
-  backIcon,
+  icon,
   borderRadius = '5px',
+  fontWeight = '700',
+  type,
 }) => (
   <button
     disabled={disabled}
-    type='button'
+    type={type ? 'submit' : 'button'}
     onClick={onSubmit}
     className='btn-wrapper'
     style={{
@@ -27,9 +27,10 @@ const Button = ({
       height,
       border,
       borderRadius,
+      fontWeight,
     }}
   >
-    { backIcon && <IoArrowBack className='backIcon' /> }
+    { icon }
     { name }
   </button>
 )

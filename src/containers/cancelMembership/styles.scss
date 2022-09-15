@@ -19,6 +19,7 @@
       display: flex;
       width: 100%;
       justify-content: flex-end;
+      cursor: pointer;
     }
 
     .card-container {
@@ -31,7 +32,9 @@
       }
 
       .tag-icon {
-        font-size: 4rem;
+        width: 4.5rem;
+        height: 3.2rem;
+        margin-right: 1rem;
         margin-top: 1.7rem;
       }
 
@@ -39,6 +42,10 @@
         width: $col-11;
         flex-direction: column;
         margin-left: 2rem;
+
+        .discount-heading {
+          margin-top: -5px;
+        }
 
         .description {
           color: $grey;
@@ -62,19 +69,24 @@
           margin-top: 2rem;
         }
       }
-
-
     }
+  }
 
+  @media screen and (max-width: 694px) {
+    .cancel-card {
+      height: 28rem;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    .cancel-card {
+      height: 33rem;
+    }
   }
 
   @media screen and (max-width: 450px) {
     .cancel-card {
       height: 38rem;
-
-      .cancel-card {
-        padding: 1rem !important;
-      }
 
       .heading {
         font-size: 1.4rem;
@@ -82,8 +94,10 @@
       }
 
       .tag-icon {
-        font-size: 2.5rem !important;
-        margin-top: 1rem !important;
+        margin-top: 1.2rem !important;
+        margin-left: -0.5rem !important;
+        width: 3.5rem !important;
+        height: 3.2rem !important;
       }
     }
   }

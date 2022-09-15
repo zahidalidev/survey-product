@@ -1,0 +1,216 @@
+@import 'variables' ;
+
+.main-product-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: $light-grey;
+  justify-content: center;
+
+  .product-card {
+    margin-top: 4rem;
+    display: flex;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: $white;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 6.5rem;
+
+    .sub-heading {
+      margin-top: 1rem;
+      align-self: flex-start;
+    }
+
+    .sub-description {
+      align-self: flex-start;
+      color: $grey;
+      margin-top: -0.1rem;
+      font-size: 0.9rem;
+      margin-bottom: 2.2rem;
+      text-align: left;
+    }
+
+    .product-row {
+      display: table;
+      flex-direction: row;
+
+      .product-field {
+        float: left;
+        width: 20.5rem;
+        align-self: flex-start;
+
+        .heading {
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: $dark-grey;
+          text-align: left;
+        }
+
+        .billing-actions {
+          display: flex;
+          width: 100%;
+          justify-content: flex-end;
+          margin-top: -2rem;
+
+          .ellipsis-icon {
+            margin-right: 2rem;
+          }
+        }
+      }
+
+      .name-field {
+        margin-right: 3.5rem;
+
+        .billing-cycle-description {
+          font-size: 0.8rem;
+          color: $grey;
+          margin-top: 0.5rem;
+          text-align: left;
+        }
+
+        .add-icon {
+          font-size: 1.3rem;
+          margin-bottom: 4px;
+          margin-right: 4px;
+        }
+      }
+    }
+
+    .plan-row {
+      display: flex;
+      flex-direction: row;
+      width: $col-12;
+      border-top: 1px solid $light-grey;
+      border-bottom: 1px solid $light-grey;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+
+      .plane-title {
+        display: flex;
+        width: $col-4;
+        justify-content: flex-start;
+        overflow: hidden;
+      }
+
+      .plan-details {
+        display: flex;
+        width: $col-4;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: hidden;
+      }
+
+      .plan-actions {
+        display: flex;
+        width: $col-4;
+        flex-direction: row;
+        align-items: center;
+        justify-content:  flex-end;
+
+        .ellipsis-icon {
+          margin-right: 2rem;
+          cursor: pointer;
+          padding: 7px;
+          width: 15px;
+          height: 15px;
+          border-radius: 20px;
+        }
+
+        .ellipsis-icon:hover {
+          background-color: $light-grey;
+        }
+
+        .chevron {
+          cursor: pointer;
+          padding: 7px;
+          border-radius: 20px;
+        }
+
+        .chevron:hover {
+          background-color: $light-grey;
+        }
+
+        .edit-action-card {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          margin-right: 5rem;
+          margin-top: 7.5rem;
+          height: 5rem;
+          width: 10rem;
+          z-index: 100;
+          background-color: $white;
+          border: 1px solid $light-grey;
+          visibility: hidden;
+        }
+
+        .edit-action-card-active {
+          visibility: visible !important;
+        }
+      }
+    }
+
+    .plan-form-row {
+      border-top: none;
+      border-bottom: none;
+      justify-content: flex-end;
+      margin-top: 1rem;
+      margin-bottom: -3.5rem;
+    }
+
+    .product-actions {
+      display: flex;
+      width: 44rem;
+      margin-top: 0.5rem;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      .cancel-btn {
+        margin-right: 1vh;
+      }
+    }
+  }
+
+  .horizontal-seperator {
+    border-top: 1px solid $light-grey;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 109%;
+    margin-left: -4.5%;
+  }
+
+  @media screen and (max-width: 796px) {
+    .product-actions {
+      float: left !important;
+      width: 90% !important;
+    }
+
+    .product-row {
+      float: left !important;
+      width: 100% !important;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .product-actions {
+      float: left !important;
+      width: 90% !important;
+    }
+
+    .product-row {
+      float: left !important;
+      width: 100% !important;
+
+      .product-field {
+        float: left !important;
+        width: 80% !important;
+      }
+    }
+
+    .product-card .plan-row .name, .status, .price {
+      font-size: 0.85rem;
+    }
+  }
+}
