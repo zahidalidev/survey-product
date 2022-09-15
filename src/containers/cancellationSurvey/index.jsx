@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import answers from 'utils/constants/cancellationSurvey'
 import { Button, BugsForm, TextArea } from 'components'
 import colors from 'config/theme'
+import { IoArrowBack } from 'react-icons/io5'
 
 import 'containers/cancellationSurvey/styles.scss'
 
@@ -124,7 +125,7 @@ const CancellationSurvey = () => {
                 color={colors.black}
                 backgroundColor={colors.white}
                 border={`1px solid ${colors.lightGrey2}`}
-                backIcon
+                icon={<IoArrowBack className='backIcon' />}
               />
             </div>
             <Button

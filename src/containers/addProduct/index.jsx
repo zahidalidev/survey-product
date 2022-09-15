@@ -6,6 +6,7 @@ import {
 } from 'components'
 import colors from 'config/theme'
 import periods from 'utils/constants/addProduct'
+import { IoAdd } from 'react-icons/io5'
 
 import 'containers/addProduct/styles.scss'
 
@@ -79,12 +80,36 @@ const AddProduct = () => {
             </div>
           </div>
         </div>
+        <div className='product-row bill-details'>
+          <div className='product-field name-field'>
+            <Input title='No. of Billing Cycles' placeholder='E.g. 6, 12, etc.' subTitle='(Optional)' />
+            <p className='billing-cycle-description'>
+              Leave this empty to auto-renew this plan until canceled.
+            </p>
+          </div>
+          <div className='product-field bill-duration' />
+        </div>
+        <div className='product-row bill-details'>
+          <div className='product-field name-field'>
+            <Button
+              onSubmit={() => navigate('/cancel-membership')}
+              name='Add Another Plan'
+              height='2.5rem'
+              color={colors.black}
+              backgroundColor={colors.white}
+              border={`1px solid ${colors.lightGrey2}`}
+              icon={<IoAdd className='add-icon' />}
+            />
+          </div>
+          <div className='product-field bill-duration' />
+        </div>
+        <hr className='horizontal-seperator' />
         <div className='product-actions product-end'>
           <div className='cancel-btn'>
             <Button
               onSubmit={() => navigate('/cancel-membership')}
               name='Cancel'
-              height='2rem'
+              height='2.5rem'
               color={colors.black}
               backgroundColor={colors.white}
               border={`1px solid ${colors.lightGrey2}`}
@@ -94,8 +119,9 @@ const AddProduct = () => {
             name='Create'
             color={colors.black}
             backgroundColor={colors.white}
-            height='2rem'
+            height='2.5rem'
             border={`1px solid ${colors.lightGrey2}`}
+            disabled
           />
         </div>
       </div>

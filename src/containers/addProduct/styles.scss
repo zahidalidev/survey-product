@@ -55,6 +55,19 @@
 
       .name-field {
         margin-right: 3.5rem;
+
+        .billing-cycle-description {
+          font-size: 0.8rem;
+          color: $grey;
+          margin-top: 0.5rem;
+          text-align: left;
+        }
+
+        .add-icon {
+          font-size: 1.3rem;
+          margin-bottom: 4px;
+          margin-right: 4px;
+        }
       }
     }
 
