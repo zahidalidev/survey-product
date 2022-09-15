@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { BiChevronDown } from 'react-icons/bi'
 
-const Select = ({ bugsDetails, selectProducts, handleProduct }) => {
+const MultiSelect = ({ bugsDetails, selectProducts, handleProduct }) => {
   const [toggleSelect, setToggleSelect] = useState(false)
   return (
     <>
@@ -36,4 +36,4 @@ const Select = ({ bugsDetails, selectProducts, handleProduct }) => {
     </>
   )
 }
-export default Select
+export default MultiSelect

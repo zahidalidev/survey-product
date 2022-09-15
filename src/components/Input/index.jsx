@@ -1,12 +1,12 @@
 import 'components/Input/styles.scss'
 
 const Input = ({
-  title, placeholder, rightTitle, type = 'text',
+  title, placeholder, rightTitle, type = 'text', min,
 }) => (
   <div className='input-container'>
     <p className='heading'>{title}</p>
     <div className='input-wrapepr'>
-      <input className='input' type={type} placeholder={placeholder} />
+      <input min={min} className='input' type={type} placeholder={placeholder} />
       {rightTitle && <p className='heading'>{rightTitle}</p>}
     </div>
   </div>

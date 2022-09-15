@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-import { Button, Input, UploadImage } from 'components'
+import {
+  Button, Input, UploadImage, SingleSelect,
+} from 'components'
 import colors from 'config/theme'
+import periods from 'utils/constants/addProduct'
 
 import 'containers/addProduct/styles.scss'
 
@@ -10,6 +13,7 @@ const AddProduct = () => {
   const navigate = useNavigate()
   const [image, setImage] = useState()
   const [billingType, setBillingType] = useState('recurring')
+  const [selectedPeriod, setSelectedPeriod] = useState('months')
 
   return (
     <div className='main-product-container'>
@@ -60,10 +64,19 @@ const AddProduct = () => {
         </div>
         <div className='product-row bill-details'>
           <div className='product-field name-field'>
-            <Input title='Price' placeholder='0.00' rightTitle='USD' type='number' />
+            <Input title='Price' min={1} placeholder='0.00' rightTitle='USD' type='number' />
           </div>
-          <div className='product-field'>
-            <Input title='Bill Every' placeholder='1' type='number' />
+          <div className='product-field bill-duration'>
+            <div className='fields'>
+              <Input title='Bill Every' min={1} placeholder='1' type='number' />
+            </div>
+            <div className='fields-select'>
+              <SingleSelect
+                data={periods}
+                selectedValue={selectedPeriod}
+                setSelectedValue={setSelectedPeriod}
+              />
+            </div>
           </div>
         </div>
         <div className='product-actions product-end'>

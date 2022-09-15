@@ -1,6 +1,6 @@
 import { IoIosAlert } from 'react-icons/io'
 
-import { Button, Select, TextArea } from 'components'
+import { Button, MultiSelect, TextArea } from 'components'
 import colors from 'config/theme'
 
 import 'components/BugsForm/styles.scss'
@@ -13,7 +13,7 @@ const BugsForm = ({
       <p className='question-lable product-issue'>
         Which product(s) did you have an issue with? <IoIosAlert color={colors.grey} />
       </p>
-      <Select
+      <MultiSelect
         bugsDetails={bugsDetails}
         selectProducts={selectProducts}
         handleProduct={handleProduct}

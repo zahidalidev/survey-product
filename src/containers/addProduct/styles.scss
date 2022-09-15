@@ -62,6 +62,21 @@
       margin-top: 1.5rem;
     }
 
+    .bill-duration {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+
+      .fields {
+        margin-right: 2rem;
+        width: 40%;
+      }
+
+      .fields-select {
+        width: 40%;
+      }
+    }
+
     .product-actions {
       display: flex;
       width: 44rem;
