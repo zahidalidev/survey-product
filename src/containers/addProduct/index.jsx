@@ -42,6 +42,7 @@ const AddProduct = () => {
           repeat: billRepeat,
           billingCycles,
         },
+        action: false,
       })
       setPlans(allPlans)
       resetRecurringDetails()
@@ -50,13 +51,20 @@ const AddProduct = () => {
 
   const handleDuplicatePlan = (index) => {
     const allPlans = [...plans]
-    allPlans.push(allPlans[index])
+    const newPlan = { ...allPlans[index], action: false }
+    allPlans.push(newPlan)
     setPlans(allPlans)
   }
 
   const handleArchivePlan = (index) => {
     let allPlans = [...plans]
     allPlans = allPlans.filter((item, planIndex) => planIndex !== index)
+    setPlans(allPlans)
+  }
+
+  const handlePlanAction = (index) => {
+    const allPlans = [...plans]
+    allPlans[index].action = !allPlans[index].action
     setPlans(allPlans)
   }
 
@@ -125,7 +133,7 @@ const AddProduct = () => {
               <p className='heading price'>${plan.price}</p>
             </div>
             <div className='plan-actions'>
-              <div className='edit-action-card'>
+              <div className={`edit-action-card ${plan.action && 'edit-action-card-active'}`}>
                 <Button
                   onSubmit={() => handleDuplicatePlan(index)}
                   height='1rem'
@@ -141,7 +149,7 @@ const AddProduct = () => {
                   backgroundColor={colors.white}
                 />
               </div>
-              <IoEllipsisHorizontal className='ellipsis-icon' />
+              <IoEllipsisHorizontal onClick={() => handlePlanAction(index)} className='ellipsis-icon' />
               <IoChevronDown className='chevron' size='1.2rem' />
             </div>
           </div>
