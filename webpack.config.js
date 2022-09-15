@@ -16,7 +16,6 @@ module.exports = {
       publicPath: '/',
       template: './public/index.html',
       filename: './index.html',
-      inject: false,
     }),
   ],
   optimization: {
