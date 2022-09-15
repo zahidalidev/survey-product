@@ -6,6 +6,10 @@
   background-color: $light-grey;
   justify-content: center;
 
+  .plan-form {
+    margin-top: 1rem;
+  }
+
   .product-card {
     margin-top: 4rem;
     display: flex;
@@ -27,7 +31,7 @@
       color: $grey;
       margin-top: -0.1rem;
       font-size: 0.9rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.2rem;
       text-align: left;
     }
 
@@ -66,6 +70,43 @@
           font-size: 1.3rem;
           margin-bottom: 4px;
           margin-right: 4px;
+        }
+      }
+    }
+
+    .plan-row {
+      display: flex;
+      flex-direction: row;
+      width: $col-12;
+      border-top: 1px solid $light-grey;
+      border-bottom: 1px solid $light-grey;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+
+      .plane-title {
+        display: flex;
+        width: $col-4;
+        justify-content: flex-start;
+        overflow: hidden;
+      }
+
+      .plan-details {
+        display: flex;
+        width: $col-4;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: hidden;
+      }
+
+      .plan-actions {
+        display: flex;
+        width: $col-4;
+        flex-direction: row;
+        align-items: center;
+        justify-content:  flex-end;
+
+        .ellipsis-icon {
+          margin-right: 2rem;
         }
       }
     }
@@ -137,6 +178,12 @@
       .product-field {
         float: left !important;
         width: 80% !important;
+      }
+    }
+
+    .product-card {
+      .plan-row .name, .status, .price {
+        font-size: 0.85rem;
       }
     }
   }

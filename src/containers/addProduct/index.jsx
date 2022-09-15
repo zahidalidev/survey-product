@@ -6,7 +6,7 @@ import {
 } from 'components'
 import colors from 'config/theme'
 import periods from 'utils/constants/addProduct'
-import { IoAdd } from 'react-icons/io5'
+import { IoAdd, IoChevronDown, IoEllipsisHorizontal } from 'react-icons/io5'
 
 import 'containers/addProduct/styles.scss'
 
@@ -15,6 +15,9 @@ const AddProduct = () => {
   const [image, setImage] = useState()
   const [billingType, setBillingType] = useState('recurring')
   const [selectedPeriod, setSelectedPeriod] = useState('months')
+  const [planName, setPlanName] = useState('')
+  const [planPrice, setPlanPrice] = useState('')
+  const [plans, setPlans] = useState([])
 
   const billPeriod = (
     <>
@@ -43,6 +46,17 @@ const AddProduct = () => {
     </div>
   )
 
+  const handlePlan = (e) => {
+    e.preventDefault()
+    const allPlans = [...plans]
+    allPlans.push({
+      name: planName,
+      status: 'active',
+      price: planPrice,
+    })
+    setPlans(allPlans)
+  }
+
   return (
     <div className='main-product-container'>
       <div className='product-card'>
@@ -62,57 +76,76 @@ const AddProduct = () => {
           Create pricing plans for this product/service. Note that every product/service can have
           multiple plans.
         </p>
-        <div className='product-row'>
-          <div className='product-field name-field'>
-            <Input title='Product Name' placeholder='E.g. Website Maintainance, SEO, etc.' />
-          </div>
-          <div className='product-field'>
-            <p className='heading'>Billing Type</p>
-            <div className='billing-toggle'>
-              <Button
-                onSubmit={() => setBillingType('recurring')}
-                name='Recurring'
-                borderRadius='0px'
-                border={`0.5px solid ${colors.lightGrey2}`}
-                backgroundColor={billingType === 'recurring' ? colors.primaryLight : colors.white}
-                color={billingType === 'recurring' ? colors.primary : colors.black}
-                height='3rem'
-              />
-              <Button
-                height='3rem'
-                onSubmit={() => setBillingType('one')}
-                name='One time'
-                borderRadius='0px'
-                border={`0.5px solid ${colors.lightGrey2}`}
-                backgroundColor={billingType === 'one' ? colors.primaryLight : colors.white}
-                color={billingType === 'one' ? colors.primary : colors.black}
-              />
+
+        {plans.map(plan => (
+          <div className='plan-row'>
+            <div className='plane-title'>
+              <p className='heading name'>{plan.name}</p>
+            </div>
+            <div className='plan-details'>
+              <p className='heading status'>{plan.status}</p>
+              <p className='heading price'>${plan.price}</p>
+            </div>
+            <div className='plan-actions'>
+              <IoEllipsisHorizontal className='ellipsis-icon' />
+              <IoChevronDown size='1.2rem' />
             </div>
           </div>
-        </div>
-        <div className='product-row bill-details'>
-          <div className='product-field name-field'>
-            <Input title='Price' min={1} placeholder='0.00' rightTitle='USD' type='number' />
+        ))}
+
+        <form className={plans.length !== 0 && 'plan-form'} onSubmit={handlePlan}>
+          <div className='product-row'>
+            <div className='product-field name-field'>
+              <Input title='Plan Name' setValue={setPlanName} placeholder='E.g. Monthly, Lifetime, etc.' />
+            </div>
+            <div className='product-field'>
+              <p className='heading'>Billing Type</p>
+              <div className='billing-toggle'>
+                <Button
+                  onSubmit={() => setBillingType('recurring')}
+                  name='Recurring'
+                  borderRadius='0px'
+                  border={`0.5px solid ${colors.lightGrey2}`}
+                  backgroundColor={billingType === 'recurring' ? colors.primaryLight : colors.white}
+                  color={billingType === 'recurring' ? colors.primary : colors.black}
+                  height='3rem'
+                />
+                <Button
+                  height='3rem'
+                  onSubmit={() => setBillingType('one')}
+                  name='One time'
+                  borderRadius='0px'
+                  border={`0.5px solid ${colors.lightGrey2}`}
+                  backgroundColor={billingType === 'one' ? colors.primaryLight : colors.white}
+                  color={billingType === 'one' ? colors.primary : colors.black}
+                />
+              </div>
+            </div>
           </div>
-          <div className='product-field bill-duration'>
-            {billingType === 'recurring' && billPeriod}
+          <div className='product-row bill-details'>
+            <div className='product-field name-field'>
+              <Input title='Price' setValue={setPlanPrice} min={1} placeholder='0.00' rightTitle='USD' type='number' />
+            </div>
+            <div className='product-field bill-duration'>
+              {billingType === 'recurring' && billPeriod}
+            </div>
           </div>
-        </div>
-        {billingType === 'recurring' && billCycles}
-        <div className='product-row bill-details'>
-          <div className='product-field name-field'>
-            <Button
-              onSubmit={() => navigate('/cancel-membership')}
-              name='Add Another Plan'
-              height='2.5rem'
-              color={colors.black}
-              backgroundColor={colors.white}
-              border={`1px solid ${colors.lightGrey2}`}
-              icon={<IoAdd className='add-icon' />}
-            />
+          {billingType === 'recurring' && billCycles}
+          <div className='product-row bill-details'>
+            <div className='product-field name-field'>
+              <Button
+                type='submit'
+                name='Add Another Plan'
+                height='2.5rem'
+                color={colors.black}
+                backgroundColor={colors.white}
+                border={`1px solid ${colors.lightGrey2}`}
+                icon={<IoAdd className='add-icon' />}
+              />
+            </div>
+            <div className='product-field bill-duration' />
           </div>
-          <div className='product-field bill-duration' />
-        </div>
+        </form>
         <hr className='horizontal-seperator' />
         <div className='product-actions'>
           <div className='cancel-btn'>

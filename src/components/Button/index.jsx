@@ -13,10 +13,11 @@ const Button = ({
   icon,
   borderRadius = '5px',
   fontWeight = '700',
+  type,
 }) => (
   <button
     disabled={disabled}
-    type='button'
+    type={type ? 'submit' : 'button'}
     onClick={onSubmit}
     className='btn-wrapper'
     style={{
