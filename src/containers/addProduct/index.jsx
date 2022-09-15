@@ -17,14 +17,53 @@ const AddProduct = () => {
   const [image, setImage] = useState()
   const [billingType, setBillingType] = useState('recurring')
   const [selectedPeriod, setSelectedPeriod] = useState('months')
+  const [billRepeat, setBillRepeat] = useState(1)
+  const [billingCycles, setBillingCycles] = useState('')
   const [planName, setPlanName] = useState('')
   const [planPrice, setPlanPrice] = useState('')
   const [plans, setPlans] = useState([])
 
+  const resetRecurringDetails = () => {
+    setBillRepeat(1)
+    setBillingCycles('')
+  }
+
+  const handlePlan = (e) => {
+    e.preventDefault()
+    const allPlans = [...plans]
+    if (planName && planPrice) {
+      allPlans.push({
+        name: planName,
+        status: 'active',
+        price: planPrice,
+        type: billingType,
+        recurringDetails: {
+          name: selectedPeriod,
+          repeat: billRepeat,
+          billingCycles,
+        },
+      })
+      setPlans(allPlans)
+      resetRecurringDetails()
+    }
+  }
+
+  const handleDuplicatePlan = (index) => {
+    const allPlans = [...plans]
+    allPlans.push(allPlans[index])
+    setPlans(allPlans)
+  }
+
+  const handleArchivePlan = (index) => {
+    let allPlans = [...plans]
+    allPlans = allPlans.filter((item, planIndex) => planIndex !== index)
+    setPlans(allPlans)
+  }
+
   const billPeriod = (
     <>
       <div className='fields'>
-        <Input title='Bill Every' min={1} placeholder='1' type='number' />
+        <Input setValue={setBillRepeat} title='Bill Every' min={1} placeholder='1' type='number' />
       </div>
       <div className='fields-select'>
         <SingleSelect
@@ -39,7 +78,7 @@ const AddProduct = () => {
   const billCycles = (
     <div className='product-row bill-details'>
       <div className='product-field name-field'>
-        <Input title='No. of Billing Cycles' placeholder='E.g. 6, 12, etc.' subTitle='(Optional)' />
+        <Input setValue={setBillingCycles} title='No. of Billing Cycles' placeholder='E.g. 6, 12, etc.' subTitle='(Optional)' />
         <p className='billing-cycle-description'>
           Leave this empty to auto-renew this plan until canceled.
         </p>
@@ -48,16 +87,14 @@ const AddProduct = () => {
     </div>
   )
 
-  const handlePlan = (e) => {
-    e.preventDefault()
-    const allPlans = [...plans]
-    allPlans.push({
-      name: planName,
-      status: 'active',
-      price: planPrice,
-    })
-    setPlans(allPlans)
-  }
+  const planFormActions = (
+    <div className='plan-row plan-form-row'>
+      <div className='plan-actions'>
+        <IoEllipsisHorizontal className='ellipsis-icon' />
+        <IoChevronUp className='chevron' size='1.2rem' />
+      </div>
+    </div>
+  )
 
   return (
     <div className='main-product-container'>
@@ -78,8 +115,7 @@ const AddProduct = () => {
           Create pricing plans for this product/service. Note that every product/service can have
           multiple plans.
         </p>
-
-        {plans.map(plan => (
+        {plans.map((plan, index) => (
           <div className='plan-row'>
             <div className='plane-title'>
               <p className='heading name'>{plan.name}</p>
@@ -89,22 +125,36 @@ const AddProduct = () => {
               <p className='heading price'>${plan.price}</p>
             </div>
             <div className='plan-actions'>
-              <IoEllipsisHorizontal className='ellipsis-icon' />
-              <IoChevronDown size='1.2rem' />
+              <div className='edit-action-card'>
+                <Button
+                  onSubmit={() => handleDuplicatePlan(index)}
+                  height='1rem'
+                  name='Duplicate Plan'
+                  color={colors.black}
+                  backgroundColor={colors.white}
+                />
+                <Button
+                  onSubmit={() => handleArchivePlan(index)}
+                  height='1rem'
+                  name='Archive Plan'
+                  color={colors.error}
+                  backgroundColor={colors.white}
+                />
+              </div>
+              <IoEllipsisHorizontal className='ellipsis-icon tooltip-action' />
+              <IoChevronDown className='chevron' size='1.2rem' />
             </div>
           </div>
         ))}
-        <div className='plan-row plan-form-row'>
-          <div className='plan-actions'>
-            <IoEllipsisHorizontal className='ellipsis-icon' />
-            <IoChevronUp size='1.2rem' />
-          </div>
-        </div>
-
+        {plans.length !== 0 && planFormActions}
         <form className={plans.length !== 0 && 'plan-form'} onSubmit={handlePlan}>
           <div className='product-row'>
             <div className='product-field name-field'>
-              <Input title='Plan Name' setValue={setPlanName} placeholder='E.g. Monthly, Lifetime, etc.' />
+              <Input
+                title='Plan Name'
+                setValue={setPlanName}
+                placeholder='E.g. Monthly, Lifetime, etc.'
+              />
             </div>
             <div className='product-field'>
               <p className='heading'>Billing Type</p>
@@ -132,7 +182,14 @@ const AddProduct = () => {
           </div>
           <div className='product-row bill-details'>
             <div className='product-field name-field'>
-              <Input title='Price' setValue={setPlanPrice} min={1} placeholder='0.00' rightTitle='USD' type='number' />
+              <Input
+                title='Price'
+                setValue={setPlanPrice}
+                min={1}
+                placeholder='0.00'
+                rightTitle='USD'
+                type='number'
+              />
             </div>
             <div className='product-field bill-duration'>
               {billingType === 'recurring' && billPeriod}
