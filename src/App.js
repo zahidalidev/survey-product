@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from 'react-router-dom'
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import AddProduct from 'containers/addProduct'
 import CancelMembership from 'containers/cancelMembership'
 import CancellationSurvey from 'containers/cancellationSurvey'
