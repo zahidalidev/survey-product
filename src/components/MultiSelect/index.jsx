@@ -3,6 +3,8 @@ import { useState } from 'react'
 
 const MultiSelect = ({ bugsDetails, selectProducts, handleProduct }) => {
   const [toggleSelect, setToggleSelect] = useState(false)
+
+  const headingBadge = <p className='heading-badge'>Select product(s)</p>
   return (
     <>
       <button
@@ -11,6 +13,7 @@ const MultiSelect = ({ bugsDetails, selectProducts, handleProduct }) => {
         onClick={() => setToggleSelect(!toggleSelect)}
         className={`answer-wrapper drop-down-select ${toggleSelect && 'active'}`}
       >
+        {toggleSelect && headingBadge}
         <p className='heading'>
           {selectProducts > 0 ? `${selectProducts} products selected` : 'Select product(s)'}
         </p>
@@ -19,7 +22,7 @@ const MultiSelect = ({ bugsDetails, selectProducts, handleProduct }) => {
       {toggleSelect && (
         <div className={`answer-wrapper drop-down-options ${toggleSelect && 'active'}`}>
           {bugsDetails.bugProducts.map((product, index) => (
-            <div className='option-wrapper'>
+            <div key={product.label} className='option-wrapper'>
               <input
                 type='checkbox'
                 id={product.label}

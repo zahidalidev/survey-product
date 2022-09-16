@@ -164,6 +164,16 @@
       width: 45rem;
       margin-bottom: -0px;
 
+      .heading-badge {
+        position: absolute;
+        background-color: $white;
+        color: $primary;
+        font-size: 0.1;
+        margin-top: -35px;
+        padding-right: 5px;
+        padding-left: 5px;
+      }
+
       .heading {
         color: $grey;
         font-size: 0.9rem;

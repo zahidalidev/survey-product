@@ -8,7 +8,7 @@ import 'components/BugsForm/styles.scss'
 const BugsForm = ({
   selectProducts, bugsDetails, handleProblemType, handleProduct,
 }) => (
-  <form data-testid='bugs-form'>
+  <div data-testid='bugs-form'>
     <div>
       <p className='question-lable product-issue'>
         Which product(s) did you have an issue with? <IoIosAlert color={colors.grey} />
@@ -48,7 +48,7 @@ const BugsForm = ({
       </p>
       <TextArea />
     </div>
-  </form>
+  </div>
 )
 
 export default BugsForm
