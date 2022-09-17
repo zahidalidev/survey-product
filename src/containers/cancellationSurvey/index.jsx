@@ -67,8 +67,9 @@ const CancellationSurvey = () => {
           </button>
           <p className='title'>Cancellation Survey</p>
         </div>
+        <hr className='horizonal-seperator' />
         <div className='cancel-survey'>
-          <h3>We&apos;re are sad to see you go...</h3>
+          <h2>We&apos;re sad to see you go...</h2>
           <p className='questions'>Can you tell us why you want to cancel your membership?</p>
           <CancellationSurveyForm
             answers={answers}
