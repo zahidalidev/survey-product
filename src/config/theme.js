@@ -8,8 +8,8 @@ const colors = {
   lightGrey3: '#F5F5F5',
   lightWarning: '#FAEAEC',
   mediumGrey: '#dfdfdf',
-  primary: '#1782e6',
-  primaryLight: '#1170dd3b',
+  primary: '#286EF1',
+  primaryLight: '#D4E2FF',
   white: '#ffffff',
 }
 

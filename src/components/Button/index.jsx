@@ -11,8 +11,8 @@ const Button = ({
   height = '2.7rem',
   border,
   icon,
-  borderRadius = '5px',
-  fontWeight = '700',
+  borderRadius = '4px',
+  fontSize = '0.83rem',
   type,
 }) => (
   <button
@@ -27,7 +27,7 @@ const Button = ({
       height,
       border,
       borderRadius,
-      fontWeight,
+      fontSize,
     }}
   >
     { icon }

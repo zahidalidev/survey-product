@@ -10,7 +10,7 @@ const CancellationSurveyForm = ({
   handleProblemType,
   handleProduct,
 }) => (
-  <form>
+  <form className='survey-form'>
     {answers?.map((answer) => (
       <Fragment key={answer.id}>
         <div

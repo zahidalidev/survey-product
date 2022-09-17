@@ -5,37 +5,39 @@
   align-items: flex-start;
   flex-direction: column;
 
-  .heading {
-    font-size: 0.9rem;
-    font-weight: 500;
+  .upload-heading {
+    font-size: 0.81rem;
+    font-weight: 700;
     color: $dark-grey;
+    margin-top: 0.3rem;
   }
 
   .heading-option {
-    font-size: 0.9rem;
+    font-size: 0.81rem;
     color: $grey;
     font-weight: 400;
   }
 
   .upload-img-description {
-    font-size: 0.85rem;
+    font-size: 0.81rem;
     color: $grey;
-    margin-top: 0.5rem;
+    margin-top: 0.8rem;
     text-align: left;
+    margin-bottom: 0.3rem;
   }
 
   .upload-wrapepr {
     display: flex;
     width: $col-12;
     height: 3rem;
-    margin-top: -0.3rem;
+    margin-top: -0.2rem;
 
     .image-box {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 3rem;
-      height: 3rem;
+      width: 3.12rem;
+      height: 3.12rem;
       cursor: pointer;
       background-color: $light-grey2;
       border-radius: 5px;
@@ -66,5 +68,12 @@
         100% { transform: rotate(360deg); }
       }
     }
+  }
+}
+
+
+@media screen and (max-width: 796px) {
+  .upload-container {
+    margin-top: 0.5rem;
   }
 }

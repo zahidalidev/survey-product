@@ -1,28 +1,41 @@
 @import 'variables' ;
 
-.plan-form {
-  margin-top: 1rem;
+
+.product-form {
+  margin-top: 0.8rem;
+
+  .plan-form {
+    margin-top: 1rem;
+  }
+
+  .billing-toggle {
+    margin-top: -0.1rem;
+  }
+
+  .bill-details {
+    margin-top: 1.5rem;
+
+    .bill-duration {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+
+      .fields {
+        margin-right: 2rem;
+        width: 45%;
+        margin-top: -0.6rem;
+      }
+
+      .fields-select {
+        width: 40%;
+        margin-left: 0.4rem;
+      }
+    }
+  }
 }
 
-.billing-toggle {
-  margin-top: -0.3rem;
-}
-
-.bill-details {
-  margin-top: 1.5rem;
-
-  .bill-duration {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-
-    .fields {
-      margin-right: 2rem;
-      width: 40%;
-    }
-
-    .fields-select {
-      width: 40%;
-    }
+@media screen and (max-width: 796px) {
+  .fields {
+    margin-top: 0.5rem !important;
   }
 }

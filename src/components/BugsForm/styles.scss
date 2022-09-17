@@ -4,7 +4,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   text-align: left;
-  margin-top: 2.5rem !important;
+  margin-top: 2rem !important;
 }
 
 .product-issue {
@@ -21,6 +21,8 @@
   margin-bottom: 5.5rem;
 }
 
-.problem-details {
-  margin-top: -1.5rem;
+@media screen and (max-width: 450px) {
+  .bugs-problem-btns .question-lable {
+    margin-top: 4rem !important;
+  }
 }

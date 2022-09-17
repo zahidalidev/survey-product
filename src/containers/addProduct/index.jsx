@@ -79,7 +79,7 @@ const AddProduct = () => {
   return (
     <div className='main-product-container'>
       <div data-testid='plan-card' className='product-card'>
-        <h2>Create a Product or Service</h2>
+        <h2 className='product-heading'>Create a Product or Service</h2>
         <h3 className='sub-heading'>General Info</h3>
         <div className='product-row'>
           <div className='product-field name-field'>
@@ -90,7 +90,7 @@ const AddProduct = () => {
           </div>
         </div>
         <hr className='horizontal-seperator' />
-        <h3 className='sub-heading'>Pricing Plans</h3>
+        <h3 className='sub-heading pricing-heading'>Pricing Plans</h3>
         <p className='sub-description'>
           Create pricing plans for this product/service. Note that every product/service can have
           multiple plans.
@@ -105,7 +105,7 @@ const AddProduct = () => {
               <p className='heading price'>${plan.price}</p>
             </div>
             <div className='plan-actions'>
-              <div className={`edit-action-card ${plan.action ? 'edit-action-card-active' : ''}`}>
+              <div className={`edit-action-card ${plan.action && 'edit-action-card-active'}`}>
                 <Button
                   onSubmit={() => handleDuplicatePlan(index)}
                   height='1rem'
@@ -123,7 +123,7 @@ const AddProduct = () => {
               </div>
               <IoEllipsisHorizontal
                 onClick={() => handlePlanAction(index)}
-                className='ellipsis-icon'
+                className={`ellipsis-icon ${plan.action && 'ellipsis-icon-active'}`}
               />
               <IoChevronDown className='chevron' size='1.2rem' />
             </div>
@@ -142,7 +142,7 @@ const AddProduct = () => {
           setSelectedPeriod={setSelectedPeriod}
           setBillingCycles={setBillingCycles}
         />
-        <hr className='horizontal-seperator' />
+        <hr className='horizontal-seperator footer-border' />
         <div className='product-actions'>
           <div className='cancel-btn'>
             <Button
@@ -152,6 +152,7 @@ const AddProduct = () => {
               color={colors.black}
               backgroundColor={colors.white}
               border={`1px solid ${colors.lightGrey2}`}
+              borderRadius='4px'
             />
           </div>
           <Button
@@ -160,6 +161,7 @@ const AddProduct = () => {
             backgroundColor={colors.white}
             height='2.5rem'
             border={`1px solid ${colors.lightGrey2}`}
+            borderRadius='4px'
             disabled
           />
         </div>

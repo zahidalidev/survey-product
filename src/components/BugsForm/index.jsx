@@ -42,12 +42,10 @@ const BugsForm = ({
       </span>
     </div>
     <hr className='horizontal-seperator' />
-    <div className='problem-details'>
-      <p className='question-lable'>
-        What problem(s) did you encounter? <IoIosAlert color={colors.grey} />
-      </p>
-      <TextArea />
-    </div>
+    <p className='question-lable'>
+      What problem(s) did you encounter? <IoIosAlert color={colors.grey} />
+    </p>
+    <TextArea />
   </div>
 )
 
