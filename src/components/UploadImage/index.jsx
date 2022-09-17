@@ -41,7 +41,7 @@ const UploadImage = ({
 
   return (
     <div data-testid='upload-image' className='upload-container'>
-      <p className='heading'>
+      <p className='upload-heading'>
         {title} <span className='heading-option'>(Optional)</span>
       </p>
       <div className='upload-wrapepr'>
@@ -63,14 +63,12 @@ const UploadImage = ({
               name='Edit'
               color={colors.primary}
               backgroundColor={colors.white}
-              fontWeight='500'
             />
             <Button
               onSubmit={() => setImage(null)}
               name='Remove'
               color={colors.error}
               backgroundColor={colors.white}
-              fontWeight='500'
             />
           </>
         )}

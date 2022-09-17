@@ -3,7 +3,7 @@
 .main-product-container {
   display: flex;
   min-height: 100vh;
-  background-color: $light-grey;
+  background-color: $light-grey3;
   justify-content: center;
 
   .product-card {
@@ -12,14 +12,25 @@
     padding: 2rem;
     border-radius: 10px;
     background-color: $white;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     text-align: center;
     margin-bottom: 6.5rem;
+    width: 46rem;
+
+    .product-heading {
+      align-self: center;
+    }
 
     .sub-heading {
       margin-top: 1rem;
+      margin-top: 1rem;
       align-self: flex-start;
+    }
+
+    .pricing-heading {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
     }
 
     .sub-description {
@@ -40,9 +51,13 @@
         width: 20.5rem;
         align-self: flex-start;
 
+        .billing-heading {
+          margin-top: 0.1rem;
+        }
+
         .heading {
-          font-size: 0.9rem;
-          font-weight: 500;
+          font-size: 0.81rem;
+          font-weight: 700;
           color: $dark-grey;
           text-align: left;
         }
@@ -61,17 +76,18 @@
 
       .name-field {
         margin-right: 3.5rem;
+        margin-top: -0.5rem;
 
         .billing-cycle-description {
-          font-size: 0.8rem;
+          font-size: 0.81rem;
           color: $grey;
-          margin-top: 0.5rem;
+          margin-top: 0.9rem;
           text-align: left;
+          width: 105%;
         }
 
         .add-icon {
           font-size: 1.3rem;
-          margin-bottom: 4px;
           margin-right: 4px;
         }
       }
@@ -81,8 +97,8 @@
       display: flex;
       flex-direction: row;
       width: $col-12;
-      border-top: 1px solid $light-grey;
-      border-bottom: 1px solid $light-grey;
+      border-top: 1px solid $light-grey3;
+      border-bottom: 1px solid $light-grey3;
       padding-top: 0.6rem;
       padding-bottom: 0.6rem;
 
@@ -109,7 +125,7 @@
         justify-content:  flex-end;
 
         .ellipsis-icon {
-          margin-right: 2rem;
+          margin-right: 1.5rem;
           cursor: pointer;
           padding: 7px;
           width: 15px;
@@ -118,17 +134,22 @@
         }
 
         .ellipsis-icon:hover {
-          background-color: $light-grey;
+          background-color: $light-grey3;
+        }
+
+        .ellipsis-icon-active {
+          background-color: $light-grey3;
         }
 
         .chevron {
           cursor: pointer;
           padding: 7px;
           border-radius: 20px;
+          margin-right: -0.4rem;
         }
 
         .chevron:hover {
-          background-color: $light-grey;
+          background-color: $light-grey3;
         }
 
         .edit-action-card {
@@ -136,13 +157,13 @@
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
-          margin-right: 5rem;
-          margin-top: 7.5rem;
-          height: 5rem;
+          margin-right: 3.9rem;
+          margin-top: 8.3rem;
+          height: 5.3rem;
           width: 10rem;
           z-index: 100;
           background-color: $white;
-          border: 1px solid $light-grey;
+          border: 1px solid $light-grey3;
           visibility: hidden;
         }
 
@@ -166,15 +187,16 @@
       margin-top: 0.5rem;
       flex-direction: row;
       justify-content: flex-end;
+      margin-left: 2rem;
 
       .cancel-btn {
-        margin-right: 1vh;
+        margin-right: 1.2rem;
       }
     }
   }
 
   .horizontal-seperator {
-    border-top: 1px solid $light-grey;
+    border-top: 1px solid $light-grey3;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     width: 109%;
@@ -190,6 +212,10 @@
     .product-row {
       float: left !important;
       width: 100% !important;
+    }
+
+    .billing-heading {
+      margin-top: 1rem !important;
     }
   }
 

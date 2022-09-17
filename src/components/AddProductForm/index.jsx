@@ -51,7 +51,7 @@ const AddProductForm = ({
   )
 
   return (
-    <form data-testid='product-form' className={plans?.length !== 0 ? 'plan-form' : ''} onSubmit={handlePlan}>
+    <form data-testid='product-form' className={`product-form ${plans?.length !== 0 ? 'plan-form' : ''}`} onSubmit={handlePlan}>
       <div className='product-row'>
         <div className='product-field name-field'>
           <Input
@@ -61,25 +61,25 @@ const AddProductForm = ({
           />
         </div>
         <div className='product-field'>
-          <p className='heading'>Billing Type</p>
+          <p className='heading billing-heading'>Billing Type</p>
           <div className='billing-toggle'>
             <Button
               onSubmit={() => setBillingType('recurring')}
               name='Recurring'
-              borderRadius='0px'
               border={`0.5px solid ${colors.lightGrey2}`}
               backgroundColor={billingType === 'recurring' ? colors.primaryLight : colors.white}
               color={billingType === 'recurring' ? colors.primary : colors.black}
               height='3rem'
+              fontSize='0.93rem'
             />
             <Button
               height='3rem'
               onSubmit={() => setBillingType('one')}
               name='One time'
-              borderRadius='0px'
               border={`0.5px solid ${colors.lightGrey2}`}
               backgroundColor={billingType === 'one' ? colors.primaryLight : colors.white}
               color={billingType === 'one' ? colors.primary : colors.black}
+              fontSize='0.93rem'
             />
           </div>
         </div>

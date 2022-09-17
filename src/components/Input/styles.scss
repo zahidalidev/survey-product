@@ -5,11 +5,11 @@
   align-items: flex-start;
   flex-direction: column;
 
-  .heading {
-    font-size: 0.9rem;
-    font-weight: 500;
+  .input-heading {
     color: $dark-grey;
     margin-right: 10px;
+    font-size: 0.81rem;
+    font-weight: 700;
   }
 
   .sub-heading {
@@ -20,18 +20,26 @@
   .input-wrapepr {
     display: flex;
     width: $col-12;
-    border: 1px solid $light-grey;
+    border: 1px solid $light-grey3;
     height: 3rem;
     border-radius: 5px;
     padding-left: 15px;
     padding-right: 5px;
     margin-top: -0.3rem;
+    align-items: center;
 
     .input {
       border: none;
-      font-size: 0.97rem;
+      font-size: 0.93rem;
       width: $col-12;
       color: $dark-grey;
+    }
+
+    .right-heading {
+      color: $dark-grey;
+      margin-right: 10px;
+      font-size: 0.81rem;
+      font-weight: 700;
     }
 
     .input:focus{
